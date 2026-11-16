@@ -1,0 +1,152 @@
+{
+  "lastUpdated": "2026-03-01",
+  "llm": {
+    "openai": [
+      {
+        "id": "gpt-4o",
+        "name": "GPT-4o",
+        "inputPer1M": 2.50,
+        "cachedInputPer1M": 1.25,
+        "outputPer1M": 10.00,
+        "contextWindow": 128000
+      },
+      {
+        "id": "gpt-4o-mini",
+        "name": "GPT-4o mini",
+        "inputPer1M": 0.15,
+        "cachedInputPer1M": 0.075,
+        "outputPer1M": 0.60,
+        "contextWindow": 128000
+      },
+      {
+        "id": "o1",
+        "name": "OpenAI o1",
+        "inputPer1M": 15.00,
+        "cachedInputPer1M": 7.50,
+        "outputPer1M": 60.00,
+        "contextWindow": 200000
+      },
+      {
+        "id": "o3-mini",
+        "name": "OpenAI o3-mini",
+        "inputPer1M": 1.10,
+        "cachedInputPer1M": 0.55,
+        "outputPer1M": 4.40,
+        "contextWindow": 200000
+      }
+    ],
+    "gemini": [
+      {
+        "id": "gemini-2.5-flash",
+        "name": "Gemini 2.5 Flash",
+        "inputPer1M": 0.075,
+        "cachedInputPer1M": 0.01875,
+        "outputPer1M": 0.30,
+        "contextWindow": 1048576
+      },
+      {
+        "id": "gemini-2.5-pro",
+        "name": "Gemini 2.5 Pro",
+        "inputPer1M": 1.25,
+        "cachedInputPer1M": 0.3125,
+        "outputPer1M": 5.00,
+        "contextWindow": 2097152
+      },
+      {
+        "id": "gemini-2.0-flash-lite",
+        "name": "Gemini 2.0 Flash-Lite",
+        "inputPer1M": 0.075,
+        "cachedInputPer1M": 0.01875,
+        "outputPer1M": 0.30,
+        "contextWindow": 1048576
+      }
+    ],
+    "anthropic": [
+      {
+        "id": "claude-3-7-sonnet",
+        "name": "Claude 3.7 Sonnet",
+        "inputPer1M": 3.00,
+        "cachedInputPer1M": 0.30,
+        "outputPer1M": 15.00,
+        "contextWindow": 200000
+      },
+      {
+        "id": "claude-3-5-haiku",
+        "name": "Claude 3.5 Haiku",
+        "inputPer1M": 0.80,
+        "cachedInputPer1M": 0.08,
+        "outputPer1M": 4.00,
+        "contextWindow": 200000
+      }
+    ],
+    "embeddings": [
+      {
+        "provider": "OpenAI",
+        "model": "text-embedding-3-small",
+        "dimensions": 1536,
+        "costPer1M": 0.02
+      },
+      {
+        "provider": "OpenAI",
+        "model": "text-embedding-3-large",
+        "dimensions": 3072,
+        "costPer1M": 0.13
+      },
+      {
+        "provider": "Google",
+        "model": "text-embedding-004",
+        "dimensions": 768,
+        "costPer1M": 0.025
+      },
+      {
+        "provider": "Cohere",
+        "model": "embed-english-v3.0",
+        "dimensions": 1024,
+        "costPer1M": 0.10
+      }
+    ]
+  },
+  "cloud": {
+    "cloudRun": {
+      "freeTier": {
+        "vcpuSec": 180000,
+        "gibSec": 360000,
+        "requests": 2000000
+      },
+      "cpuPerSecond": 0.00002400,
+      "memGiBPerSecond": 0.00000250,
+      "requestPerMillion": 0.40
+    },
+    "awsLambda": {
+      "freeTier": {
+        "requests": 1000000,
+        "gbSeconds": 400000
+      },
+      "gbSecondRate": 0.0000166667,
+      "requestPerMillion": 0.20
+    },
+    "egress": {
+      "aws": {
+        "standardInternetPerGB": 0.09,
+        "cloudflareBandwidthAlliancePerGB": 0.00,
+        "cloudfrontPerGB": 0.085
+      },
+      "gcp": {
+        "standardInternetPerGB": 0.12,
+        "cloudCDNPerGB": 0.08
+      },
+      "azure": {
+        "standardInternetPerGB": 0.087,
+        "azureCDNPerGB": 0.081
+      },
+      "cloudflareR2": {
+        "egressPerGB": 0.00
+      }
+    },
+    "cloudSql": {
+      "storagePerGBMonth": 0.17,
+      "backupPerGBMonth": 0.08,
+      "highAvailabilityMultiplier": 2.0
+    }
+  }
+}
