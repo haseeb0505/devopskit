@@ -218,7 +218,7 @@ export default function HomePage() {
                 </div>
                 <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-mono">
                   <span className="text-blue-600 font-medium">{tool.highlight}</span>
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-50 text-blue-700 font-semibold group-hover:bg-blue-600 group-hover:text-white transition-all shadow-xs">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-600 text-white font-semibold whitespace-nowrap shadow-xs group-hover:bg-blue-700 transition-colors">
                     Open Tool <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
                   </span>
                 </div>
@@ -269,7 +269,7 @@ export default function HomePage() {
                 </div>
                 <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-mono">
                   <span className="text-indigo-600 font-medium">{tool.highlight}</span>
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-50 text-indigo-700 font-semibold group-hover:bg-indigo-600 group-hover:text-white transition-all shadow-xs">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-600 text-white font-semibold whitespace-nowrap shadow-xs group-hover:bg-indigo-700 transition-colors">
                     Open Tool <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
                   </span>
                 </div>
@@ -320,7 +320,7 @@ export default function HomePage() {
                 </div>
                 <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-mono">
                   <span className="text-emerald-600 font-medium">{tool.highlight}</span>
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-700 font-semibold group-hover:bg-emerald-600 group-hover:text-white transition-all shadow-xs">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600 text-white font-semibold whitespace-nowrap shadow-xs group-hover:bg-emerald-700 transition-colors">
                     Open Tool <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
                   </span>
                 </div>
