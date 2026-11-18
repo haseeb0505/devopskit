@@ -102,16 +102,20 @@ devopskit/
 - [ ] **Real-world User Feedback & Verification:** Verify query param hydration across all 12 tool views under edge cases.
 - [ ] **Unit Test Coverage:** Ensure dedicated test runner (e.g. Vitest) covers all calculation edge cases in `src/lib/calculators/`.
 
-### 🔮 Next Plan & Roadmap (Phase 2)
-1. **Community Execution:**
+### 🔮 Next Plan & Roadmap (Phase 2 & Phase 3)
+1. **Automated Live Pricing Pipeline & Data Defense (Phase 2 Priority):**
+   - **Automated Sync Engine (`scripts/sync-pricing.mjs`):** Script to fetch and verify LLM (OpenAI, Anthropic, Gemini, DeepSeek) and cloud rates against official source registries and APIs.
+   - **GitHub Actions Scheduled Cron (`.github/workflows/pricing-sync.yml`):** Runs weekly/daily to check for price drops, validate via Zod schema (preventing corrupted/NaN rates), and automatically commit updates to `src/data/pricing.json`.
+   - **"Live Data Verification" Badge & Source Trust:** Dynamic timestamp and direct diff links so no user or competitor can challenge calculation accuracy.
+2. **Community Execution:**
    - Launch on Hacker News ("Show HN") following the template in `docs/LAUNCH_TEMPLATES_US.md`.
    - Post to `r/devops` and `r/LocalLLaMA` and engage within the 120-minute golden window.
-2. **Search Console Monitoring:**
+3. **Search Console Monitoring:**
    - Track initial crawling impressions and index coverage in Google Search Console and Bing.
-3. **Monetization & AdSense:**
+4. **Monetization & AdSense:**
    - Replace placeholder `ADSENSE_PUB_ID` in `src/config/site.ts` and `public/ads.txt`.
    - Apply for Google AdSense site approval after initial organic traffic and indexing.
-4. **Future Tool Expansion:**
+5. **Future Tool Expansion:**
    - Additional serverless FinOps calculators (DynamoDB vs Cloud Firestore, S3 Glacier lifecycle tiers).
    - Local offline PWA (Progressive Web App) manifest support for instant dev access.
 
