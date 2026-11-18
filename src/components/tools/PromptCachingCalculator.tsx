@@ -38,6 +38,57 @@ export default function PromptCachingCalculator() {
             <span className="text-xs text-emerald-600 font-mono font-medium">50% - 90% Discount</span>
           </div>
 
+          {/* 1-Click Startup Archetypes */}
+          <div>
+            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider block mb-2">
+              ⚡ 1-Click Real-World Archetypes
+            </span>
+            <div className="grid grid-cols-3 gap-2">
+              <button
+                type="button"
+                onClick={() => {
+                  setSystemPromptTokens(12000);
+                  setDailyRequests(5000);
+                  setCacheHitRatePercent(80);
+                  setInputPricePerMillion(3.00);
+                  setCachedPricePerMillion(0.30);
+                }}
+                className="px-2.5 py-2 text-left rounded-lg border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all text-xs"
+              >
+                <div className="font-semibold text-slate-800">Claude Coding Agent</div>
+                <div className="text-[10px] text-slate-500">12k ctx • 80% hit</div>
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setSystemPromptTokens(6000);
+                  setDailyRequests(30000);
+                  setCacheHitRatePercent(65);
+                  setInputPricePerMillion(2.50);
+                  setCachedPricePerMillion(1.25);
+                }}
+                className="px-2.5 py-2 text-left rounded-lg border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all text-xs"
+              >
+                <div className="font-semibold text-slate-800">Support RAG Bot</div>
+                <div className="text-[10px] text-slate-500">6k ctx • 30k reqs</div>
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setSystemPromptTokens(45000);
+                  setDailyRequests(1000);
+                  setCacheHitRatePercent(90);
+                  setInputPricePerMillion(0.075);
+                  setCachedPricePerMillion(0.01875);
+                }}
+                className="px-2.5 py-2 text-left rounded-lg border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all text-xs"
+              >
+                <div className="font-semibold text-slate-800">Doc Analysis</div>
+                <div className="text-[10px] text-slate-500">45k ctx • Gemini</div>
+              </button>
+            </div>
+          </div>
+
           <div className="space-y-4">
             <div>
               <div className="flex justify-between text-xs mb-1">

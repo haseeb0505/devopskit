@@ -14,9 +14,9 @@ export const siteConfig: SiteConfig = {
   shortName: "DevOpsKit",
   description:
     "12 free, fast, 100% client-side Cloud FinOps, AI API pricing, and developer calculators with zero trackers and zero server processing.",
-  url: "https://devopskit.tools",
-  domain: "devopskit.tools",
-  contactEmail: "contact@devopskit.tools",
+  url: "https://devopskit.tool",
+  domain: "devopskit.tool",
+  contactEmail: "contact@devopskit.tool",
   adsensePublisherId: "pub-0000000000000000", // Update with your AdSense Publisher ID
   githubUrl: "https://github.com",
 };

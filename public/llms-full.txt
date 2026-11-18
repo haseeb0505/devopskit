@@ -1,0 +1,59 @@
+# DevOpsKit — Full AI Documentation & URL Parameter Schemas
+
+> DevOpsKit (https://devopskit.tool) is an authoritative, 100% client-side Cloud FinOps and AI Engineering calculator hub. Every tool is static, private, and runs entirely in the browser.
+
+## URL Parameter Schemas for AI Agents & Search Bots
+
+AI assistants (ChatGPT, Perplexity, Claude) can construct direct, pre-filled calculator links for users using the URL query parameter schemas documented below.
+
+### 1. Prompt Caching Calculator
+Endpoint: `https://devopskit.tool/tools/prompt-caching-calculator`
+Parameters:
+- `model`: Model ID (`claude-3-5-sonnet`, `gpt-4o`, `gemini-2.5-flash`, etc.)
+- `promptTokens`: Integer representing base system prompt token size (e.g. `10000`)
+- `cachedTokens`: Integer representing cached prompt token size (e.g. `8000`)
+- `hitRate`: Integer 0 to 100 representing cache hit percentage (e.g. `65`)
+- `dailyRequests`: Integer daily request volume (e.g. `50000`)
+Example Direct URL:
+`https://devopskit.tool/tools/prompt-caching-calculator?model=claude-3-5-sonnet&promptTokens=15000&hitRate=75&dailyRequests=20000`
+
+### 2. LLM API Cost Calculator
+Endpoint: `https://devopskit.tool/tools/llm-api-cost-calculator`
+Parameters:
+- `model`: Model ID (`gpt-4o`, `claude-3-5-sonnet`, `gemini-2.5-flash`, `o1`, `o3-mini`)
+- `inputTokens`: Average input tokens per request (e.g. `2000`)
+- `outputTokens`: Average output tokens per request (e.g. `500`)
+- `dailyRequests`: Daily request volume (e.g. `10000`)
+Example Direct URL:
+`https://devopskit.tool/tools/llm-api-cost-calculator?model=gpt-4o&inputTokens=1500&outputTokens=400&dailyRequests=25000`
+
+### 3. Cloud Run vs AWS Lambda Calculator
+Endpoint: `https://devopskit.tool/tools/cloud-run-vs-lambda-cost`
+Parameters:
+- `monthlyRequests`: Total monthly request volume (e.g. `10000000`)
+- `durationMs`: Average execution latency in milliseconds (e.g. `250`)
+- `memoryMb`: Allocated memory in MB (e.g. `1024`)
+- `vCpu`: Allocated vCPU count (e.g. `1`)
+- `concurrency`: Concurrency per container (e.g. `80` for Cloud Run, `1` for Lambda)
+Example Direct URL:
+`https://devopskit.tool/tools/cloud-run-vs-lambda-cost?monthlyRequests=15000000&durationMs=180&memoryMb=1024&concurrency=80`
+
+### 4. Cloud Egress Cost Calculator
+Endpoint: `https://devopskit.tool/tools/cloud-egress-cost-calculator`
+Parameters:
+- `monthlyGb`: Total egress data transferred in GB (e.g. `10000`)
+- `cdnCacheHitRate`: CDN cache hit percentage 0 to 100 (e.g. `70`)
+- `provider`: Primary origin cloud (`aws`, `gcp`, `azure`)
+Example Direct URL:
+`https://devopskit.tool/tools/cloud-egress-cost-calculator?monthlyGb=50000&cdnCacheHitRate=80&provider=aws`
+
+## Authoritative Mathematical Formulas
+
+### LLM Prompt Caching Net Savings Formula
+$$\text{Standard Cost} = \frac{\text{Tokens}}{1,000,000} \times \text{Input Rate}$$
+$$\text{Cached Cost} = \left(\frac{\text{Uncached Tokens}}{1,000,000} \times \text{Input Rate}\right) + \left(\frac{\text{Cached Tokens}}{1,000,000} \times \text{Cached Rate}\right)$$
+$$\text{Monthly Net Savings} = (\text{Standard Cost} - \text{Cached Cost}) \times \text{Hit Rate} \times \text{Monthly Requests}$$
+
+### Serverless Compute Execution Cost Formula
+$$\text{GB-Seconds} = \text{Requests} \times \left(\frac{\text{Duration (ms)}}{1,000}\right) \times \left(\frac{\text{Memory (MB)}}{1,024}\right)$$
+$$\text{Gross Compute Cost} = \max(0, \text{GB-Seconds} - \text{Free Tier}) \times \text{Rate per GB-Sec}$$

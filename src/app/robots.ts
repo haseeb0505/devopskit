@@ -5,10 +5,25 @@ export const dynamic = "force-static";
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: {
-      userAgent: "*",
-      allow: "/",
-    },
+    rules: [
+      {
+        userAgent: "*",
+        allow: "/",
+      },
+      // Explicit allowance for AI Search & Retrieval Bots (GEO/AEO Optimization)
+      {
+        userAgent: [
+          "GPTBot",
+          "OAI-SearchBot",
+          "PerplexityBot",
+          "ClaudeBot",
+          "anthropic-ai",
+          "Google-Extended",
+          "Applebot-Extended",
+        ],
+        allow: "/",
+      },
+    ],
     sitemap: `${siteConfig.url}/sitemap.xml`,
   };
 }

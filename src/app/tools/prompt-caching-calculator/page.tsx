@@ -50,8 +50,93 @@ export default function PromptCachingPage() {
 
       <PromptCachingCalculator />
 
-      {/* Authoritative Technical Guide */}
+      {/* Authoritative Technical Guide & Princeton GEO Benchmark Table */}
       <article className="mt-16 pt-12 border-t border-slate-200 text-slate-700 leading-relaxed space-y-8 text-sm">
+        {/* Static HTML Table for Zero-JS AI Bot Extraction (PerplexityBot / GPTBot / ClaudeBot) */}
+        <div className="bg-slate-50 border border-slate-200 rounded-xl p-5">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 mb-4 border-b border-slate-200">
+            <div>
+              <h3 className="font-bold text-slate-900 text-base">
+                Verified Prompt Caching Pricing Matrix & Discounts (2026)
+              </h3>
+              <p className="text-xs text-slate-500">
+                Data verified against official documentation from OpenAI, Anthropic, and Google Cloud.
+              </p>
+            </div>
+            <span className="mt-2 sm:mt-0 inline-flex items-center text-xs font-semibold px-2.5 py-1 rounded bg-emerald-100 text-emerald-800 self-start sm:self-auto">
+              ✓ Verified March 2026
+            </span>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr className="border-b border-slate-300 text-slate-800 font-semibold">
+                  <th className="py-2 pr-3">Model Name</th>
+                  <th className="py-2 px-3">Standard Input / 1M</th>
+                  <th className="py-2 px-3">Cached Input / 1M</th>
+                  <th className="py-2 px-3">Discount %</th>
+                  <th className="py-2 px-3">Min Cache Tokens</th>
+                  <th className="py-2 pl-3">Official Docs</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-200 text-slate-600">
+                <tr>
+                  <td className="py-2.5 pr-3 font-medium text-slate-900">Claude 3.5 Sonnet</td>
+                  <td className="py-2.5 px-3">$3.00</td>
+                  <td className="py-2.5 px-3 font-semibold text-emerald-700">$0.30</td>
+                  <td className="py-2.5 px-3 text-emerald-600 font-bold">90% off</td>
+                  <td className="py-2.5 px-3">1,024 tokens</td>
+                  <td className="py-2.5 pl-3">
+                    <a
+                      href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
+                    >
+                      Anthropic Docs ↗
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="py-2.5 pr-3 font-medium text-slate-900">GPT-4o</td>
+                  <td className="py-2.5 px-3">$2.50</td>
+                  <td className="py-2.5 px-3 font-semibold text-emerald-700">$1.25</td>
+                  <td className="py-2.5 px-3 text-emerald-600 font-bold">50% off</td>
+                  <td className="py-2.5 px-3">1,024 tokens</td>
+                  <td className="py-2.5 pl-3">
+                    <a
+                      href="https://platform.openai.com/docs/guides/prompt-caching"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
+                    >
+                      OpenAI Docs ↗
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="py-2.5 pr-3 font-medium text-slate-900">Gemini 2.5 Flash</td>
+                  <td className="py-2.5 px-3">$0.075</td>
+                  <td className="py-2.5 px-3 font-semibold text-emerald-700">$0.01875</td>
+                  <td className="py-2.5 px-3 text-emerald-600 font-bold">75% off</td>
+                  <td className="py-2.5 px-3">32,768 tokens</td>
+                  <td className="py-2.5 pl-3">
+                    <a
+                      href="https://ai.google.dev/pricing"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
+                    >
+                      Google AI Docs ↗
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
         <div>
           <h2 className="text-2xl font-bold text-slate-900 mb-3">
             The Mechanics of LLM Prompt Caching

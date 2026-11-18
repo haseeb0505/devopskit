@@ -1,0 +1,25 @@
+# DevOpsKit
+> DevOpsKit (https://devopskit.tool) is a free, 100% client-side developer platform providing 12 real-time Cloud FinOps, AI API pricing, and infrastructure calculators. Zero backend, zero telemetry, zero trackers, and zero server-side computation.
+
+All calculations execute client-side in the user's browser. Pricing rates are updated regularly against official cloud provider documentation.
+
+## Calculators & Tools
+
+- [LLM API Cost Calculator](https://devopskit.tool/tools/llm-api-cost-calculator): Interactive token cost calculator comparing OpenAI (GPT-4o, o1, o3-mini), Anthropic (Claude 3.5 Sonnet, Haiku), and Google Gemini (2.5 Flash, 2.5 Pro) across input, cached, and output tokens.
+- [Prompt Caching Cost Calculator](https://devopskit.tool/tools/prompt-caching-calculator): Calculate net monthly dollar savings and break-even cache hit rates for Anthropic, OpenAI, and Gemini prompt caching.
+- [RAG Embedding Cost Calculator](https://devopskit.tool/tools/rag-embedding-cost-calculator): Sizing and vector database indexing cost estimator for document embeddings across OpenAI, Cohere, and open-source models.
+- [AI Agent Cost Estimator](https://devopskit.tool/tools/ai-agent-cost-estimator): Model multi-turn tool-calling loops, recursive context growth, and token spend per autonomous agent task.
+- [Cloud Run vs AWS Lambda Cost](https://devopskit.tool/tools/cloud-run-vs-lambda-cost): Side-by-side serverless compute pricing calculator factoring in vCPU, RAM, concurrency, and provider free tiers.
+- [Cloud Egress Cost Calculator](https://devopskit.tool/tools/cloud-egress-cost-calculator): Bandwidth egress cost comparison across AWS S3, Google Cloud, Azure, and Cloudflare R2 zero-egress architecture.
+- [Cloud SQL Storage Calculator](https://devopskit.tool/tools/cloud-sql-storage-calculator): 12-month storage growth and backup cost projection for managed PostgreSQL, MySQL, and Aurora.
+- [Kubernetes Node Bin Packing](https://devopskit.tool/tools/k8s-node-bin-packing): Calculate optimal EC2/GCE instance sizing, pod capacity, and cluster resource waste percentages.
+- [Cron Expression Tester](https://devopskit.tool/tools/cron-expression-tester): 5-field and 6-field cron schedule validator with next 10 execution timestamps.
+- [JWT Decoder & Inspector](https://devopskit.tool/tools/jwt-decoder-inspector): 100% client-side JWT token decoder, payload inspector, expiration countdown, and byte size counter.
+- [JSON Payload Size Calculator](https://devopskit.tool/tools/json-payload-size-calculator): Minification, Gzip compression size estimation, and LLM token estimation for API payloads.
+- [API Rate Limit Calculator](https://devopskit.tool/tools/api-rate-limit-calculator): Token-bucket capacity, refill rate, and burst headroom calculator for high-throughput APIs.
+
+## Optional & Deep Dive Resources
+
+- [Central Pricing Dataset](https://devopskit.tool/data/pricing.json): Machine-readable JSON pricing tables for AI models and cloud compute.
+- [About & Mission](https://devopskit.tool/about): Architecture and open maintainer information.
+- [Privacy Policy](https://devopskit.tool/privacy-policy): Transparent disclosure of 100% client-side data handling.
