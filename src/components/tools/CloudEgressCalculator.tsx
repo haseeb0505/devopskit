@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { calculateEgress, EgressResult } from "@/lib/calculators";
 import { Copy, Check } from "lucide-react";
+import ShareBar from "./ShareBar";
 
 export default function CloudEgressCalculator() {
   const [monthlyTransferGB, setMonthlyTransferGB] = useState<number>(25000);
@@ -10,11 +11,46 @@ export default function CloudEgressCalculator() {
   const [cloudProvider, setCloudProvider] = useState<"aws" | "gcp" | "azure">("aws");
   const [copied, setCopied] = useState<boolean>(false);
 
+  // Sync from URL
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    const gb = params.get("gb");
+    const hit = params.get("hit");
+    const provider = params.get("provider");
+    if (gb && !isNaN(Number(gb))) setMonthlyTransferGB(Number(gb));
+    if (hit && !isNaN(Number(hit))) setCdnCacheHitPercent(Number(hit));
+    if (provider && (provider === "aws" || provider === "gcp" || provider === "azure")) {
+      setCloudProvider(provider);
+    }
+  }, []);
+
+  // Sync to URL
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams();
+    params.set("gb", monthlyTransferGB.toString());
+    params.set("hit", cdnCacheHitPercent.toString());
+    params.set("provider", cloudProvider);
+    window.history.replaceState(null, "", `${window.location.pathname}?${params.toString()}`);
+  }, [monthlyTransferGB, cdnCacheHitPercent, cloudProvider]);
+
   const result: EgressResult = calculateEgress({
     monthlyTransferGB,
     cdnCacheHitPercent,
     cloudProvider,
   });
+
+  const markdownSnippet = [
+    `### 🌐 Cloud Egress Cost Calculation (${cloudProvider.toUpperCase()})`,
+    `**Data Transfer:** ${monthlyTransferGB.toLocaleString()} GB/mo | **CDN Cache Hit:** ${cdnCacheHitPercent}%\n`,
+    `| Metric | Monthly Cost |`,
+    `| :--- | :--- |`,
+    `| Origin Cost (Direct to Internet) | **$${result.originCostWithoutCDN.toFixed(2)}** |`,
+    `| Optimized Cost (with CloudFront/CDN) | **$${result.costWithCDN.toFixed(2)}** |`,
+    `| Monthly CDN Savings | **$${result.monthlySavings.toFixed(2)}** |`,
+    `| Cloudflare R2 / Zero-Egress Equivalent | **$0.00** |`,
+  ].join("\n");
 
   const handleCopy = () => {
     navigator.clipboard.writeText(
@@ -26,6 +62,9 @@ export default function CloudEgressCalculator() {
 
   return (
     <div className="space-y-8">
+      {/* 1-Click Share & Export Bar */}
+      <ShareBar title="cloud egress calculation" markdownSnippet={markdownSnippet} />
+
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* Controls */}
         <div className="lg:col-span-5 space-y-6 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">

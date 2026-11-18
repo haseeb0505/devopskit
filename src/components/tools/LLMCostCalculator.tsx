@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { calculateLLMCosts, ModelCostBreakdown } from "@/lib/calculators";
 import { Copy, Check } from "lucide-react";
+import ShareBar from "./ShareBar";
 
 export default function LLMCostCalculator() {
   const [inputTokens, setInputTokens] = useState<number>(1000);
@@ -10,6 +11,33 @@ export default function LLMCostCalculator() {
   const [cachedTokens, setCachedTokens] = useState<number>(0);
   const [requestsPerDay, setRequestsPerDay] = useState<number>(5000);
   const [copied, setCopied] = useState<boolean>(false);
+
+  // Read URL query params on mount
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    const inTok = params.get("in");
+    const outTok = params.get("out");
+    const cached = params.get("cached");
+    const reqs = params.get("reqs");
+
+    if (inTok && !isNaN(Number(inTok))) setInputTokens(Number(inTok));
+    if (outTok && !isNaN(Number(outTok))) setOutputTokens(Number(outTok));
+    if (cached && !isNaN(Number(cached))) setCachedTokens(Number(cached));
+    if (reqs && !isNaN(Number(reqs))) setRequestsPerDay(Number(reqs));
+  }, []);
+
+  // Sync state to URL search params (debounced / on change)
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams();
+    params.set("in", inputTokens.toString());
+    params.set("out", outputTokens.toString());
+    if (cachedTokens > 0) params.set("cached", cachedTokens.toString());
+    params.set("reqs", requestsPerDay.toString());
+    const newUrl = `${window.location.pathname}?${params.toString()}`;
+    window.history.replaceState(null, "", newUrl);
+  }, [inputTokens, outputTokens, cachedTokens, requestsPerDay]);
 
   const results: ModelCostBreakdown[] = calculateLLMCosts({
     inputTokens,
@@ -39,8 +67,19 @@ export default function LLMCostCalculator() {
     setRequestsPerDay(reqs);
   };
 
+  const markdownSnippet = [
+    `### 🤖 LLM Cost Comparison Estimate`,
+    `**Inputs:** ${inputTokens.toLocaleString()} In | ${outputTokens.toLocaleString()} Out | ${cachedTokens.toLocaleString()} Cached | ${requestsPerDay.toLocaleString()} Reqs/day\n`,
+    `| Model | Daily Cost | Monthly (30d) |`,
+    `| :--- | :--- | :--- |`,
+    ...results.slice(0, 5).map((r) => `| **${r.name}** (${r.provider}) | $${r.costPerDay.toFixed(2)} | $${r.costPerMonth.toFixed(2)} |`),
+  ].join("\n");
+
   return (
     <div className="space-y-8">
+      {/* 1-Click Share & Export Bar */}
+      <ShareBar title="LLM cost breakdown" markdownSnippet={markdownSnippet} />
+
       {/* Interactive Controls & Live Readouts */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* Left Inputs */}
