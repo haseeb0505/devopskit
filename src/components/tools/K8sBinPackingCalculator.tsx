@@ -40,6 +40,57 @@ export default function K8sBinPackingCalculator() {
             <span className="text-xs text-indigo-600 font-mono font-medium">Bin-Packing Engine</span>
           </div>
 
+          {/* 1-Click Startup Archetypes */}
+          <div>
+            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider block mb-2">
+              ⚡ 1-Click Real-World Archetypes
+            </span>
+            <div className="grid grid-cols-3 gap-2">
+              <button
+                type="button"
+                onClick={() => {
+                  setPodCpuCores(0.5);
+                  setPodMemoryGiB(1);
+                  setReplicaCount(30);
+                  setNodeCpuCores(4);
+                  setNodeMemoryGiB(16);
+                }}
+                className="px-2.5 py-2 text-left rounded-lg border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all text-xs"
+              >
+                <div className="font-semibold text-slate-800">Go / Node APIs</div>
+                <div className="text-[10px] text-slate-500">30 pods • 0.5c/1GB</div>
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setPodCpuCores(2);
+                  setPodMemoryGiB(8);
+                  setReplicaCount(12);
+                  setNodeCpuCores(16);
+                  setNodeMemoryGiB(64);
+                }}
+                className="px-2.5 py-2 text-left rounded-lg border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all text-xs"
+              >
+                <div className="font-semibold text-slate-800">Java / Spring</div>
+                <div className="text-[10px] text-slate-500">12 pods • 2c/8GB</div>
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setPodCpuCores(4);
+                  setPodMemoryGiB(16);
+                  setReplicaCount(8);
+                  setNodeCpuCores(32);
+                  setNodeMemoryGiB(128);
+                }}
+                className="px-2.5 py-2 text-left rounded-lg border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all text-xs"
+              >
+                <div className="font-semibold text-slate-800">ML Model Pods</div>
+                <div className="text-[10px] text-slate-500">8 pods • 4c/16GB</div>
+              </button>
+            </div>
+          </div>
+
           <div className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <div>

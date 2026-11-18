@@ -40,6 +40,60 @@ export default function RAGCostCalculator() {
             <span className="text-xs text-blue-600 font-mono font-medium">Chunks &amp; Vectors</span>
           </div>
 
+          {/* 1-Click Startup Archetypes */}
+          <div>
+            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider block mb-2">
+              ⚡ 1-Click Real-World Archetypes
+            </span>
+            <div className="grid grid-cols-3 gap-2">
+              <button
+                type="button"
+                onClick={() => {
+                  setTotalDocuments(2500);
+                  setAvgTokensPerDoc(800);
+                  setChunkSize(400);
+                  setChunkOverlapPercent(10);
+                  setEmbeddingCostPer1M(0.02);
+                  setVectorDimensions(1536);
+                }}
+                className="px-2.5 py-2 text-left rounded-lg border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all text-xs"
+              >
+                <div className="font-semibold text-slate-800">Notion Docs</div>
+                <div className="text-[10px] text-slate-500">2.5k docs • Small</div>
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setTotalDocuments(20000);
+                  setAvgTokensPerDoc(3000);
+                  setChunkSize(512);
+                  setChunkOverlapPercent(15);
+                  setEmbeddingCostPer1M(0.13);
+                  setVectorDimensions(1536);
+                }}
+                className="px-2.5 py-2 text-left rounded-lg border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all text-xs"
+              >
+                <div className="font-semibold text-slate-800">PDF Archive</div>
+                <div className="text-[10px] text-slate-500">20k pdfs • Large</div>
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setTotalDocuments(80000);
+                  setAvgTokensPerDoc(500);
+                  setChunkSize(256);
+                  setChunkOverlapPercent(10);
+                  setEmbeddingCostPer1M(0.02);
+                  setVectorDimensions(768);
+                }}
+                className="px-2.5 py-2 text-left rounded-lg border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all text-xs"
+              >
+                <div className="font-semibold text-slate-800">Code Search</div>
+                <div className="text-[10px] text-slate-500">80k files • Fast</div>
+              </button>
+            </div>
+          </div>
+
           <div className="space-y-4">
             <div>
               <div className="flex justify-between text-xs mb-1">

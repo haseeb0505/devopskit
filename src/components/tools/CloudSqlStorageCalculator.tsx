@@ -36,6 +36,54 @@ export default function CloudSqlStorageCalculator() {
             <span className="text-xs text-indigo-600 font-mono font-medium">Postgres / MySQL</span>
           </div>
 
+          {/* 1-Click Startup Archetypes */}
+          <div>
+            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider block mb-2">
+              ⚡ 1-Click Real-World Archetypes
+            </span>
+            <div className="grid grid-cols-3 gap-2">
+              <button
+                type="button"
+                onClick={() => {
+                  setInitialStorageGB(20);
+                  setMonthlyGrowthGB(5);
+                  setBackupRetentionDays(7);
+                  setHighAvailability(false);
+                }}
+                className="px-2.5 py-2 text-left rounded-lg border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all text-xs"
+              >
+                <div className="font-semibold text-slate-800">Seed Startup DB</div>
+                <div className="text-[10px] text-slate-500">20 GB • Single AZ</div>
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setInitialStorageGB(250);
+                  setMonthlyGrowthGB(40);
+                  setBackupRetentionDays(30);
+                  setHighAvailability(true);
+                }}
+                className="px-2.5 py-2 text-left rounded-lg border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all text-xs"
+              >
+                <div className="font-semibold text-slate-800">E-Commerce RDS</div>
+                <div className="text-[10px] text-slate-500">250 GB • Multi-AZ</div>
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setInitialStorageGB(1200);
+                  setMonthlyGrowthGB(150);
+                  setBackupRetentionDays(14);
+                  setHighAvailability(true);
+                }}
+                className="px-2.5 py-2 text-left rounded-lg border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all text-xs"
+              >
+                <div className="font-semibold text-slate-800">Log Archive DB</div>
+                <div className="text-[10px] text-slate-500">1.2 TB • Multi-AZ</div>
+              </button>
+            </div>
+          </div>
+
           <div className="space-y-4">
             <div>
               <div className="flex justify-between text-xs mb-1">

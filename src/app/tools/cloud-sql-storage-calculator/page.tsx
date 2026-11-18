@@ -50,7 +50,78 @@ export default function CloudSqlStoragePage() {
 
       <CloudSqlStorageCalculator />
 
+      {/* Authoritative Technical Guide & Princeton GEO Benchmark Table */}
       <article className="mt-16 pt-12 border-t border-slate-200 text-slate-700 leading-relaxed space-y-8 text-sm">
+        {/* Static HTML Table for Zero-JS AI Bot Extraction */}
+        <div className="bg-slate-50 border border-slate-200 rounded-xl p-5">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 mb-4 border-b border-slate-200">
+            <div>
+              <h3 className="font-bold text-slate-900 text-base">
+                Managed Database Storage & Backup Rates Benchmark (2026)
+              </h3>
+              <p className="text-xs text-slate-500">
+                Comparison of base SSD storage and automated backup retention fees across major managed cloud engines.
+              </p>
+            </div>
+            <span className="mt-2 sm:mt-0 inline-flex items-center text-xs font-semibold px-2.5 py-1 rounded bg-emerald-100 text-emerald-800 self-start sm:self-auto">
+              ✓ Verified March 2026
+            </span>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr className="border-b border-slate-300 text-slate-800 font-semibold">
+                  <th className="py-2 pr-3">Cloud Database Engine</th>
+                  <th className="py-2 px-3">Base Storage / GB-mo</th>
+                  <th className="py-2 px-3">Backup Storage / GB-mo</th>
+                  <th className="py-2 px-3">Storage Shrink Support?</th>
+                  <th className="py-2 px-3">Free Backup Quota</th>
+                  <th className="py-2 pl-3">Official Docs</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-200 text-slate-600">
+                <tr>
+                  <td className="py-2.5 pr-3 font-medium text-slate-900">AWS RDS (gp3 SSD)</td>
+                  <td className="py-2.5 px-3 font-semibold text-slate-800">$0.115</td>
+                  <td className="py-2.5 px-3 font-semibold text-slate-800">$0.095</td>
+                  <td className="py-2.5 px-3 text-rose-600 font-medium">No (One-way)</td>
+                  <td className="py-2.5 px-3">100% of Provisioned DB</td>
+                  <td className="py-2.5 pl-3">
+                    <a href="https://aws.amazon.com/rds/pricing/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                      AWS RDS Docs ↗
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="py-2.5 pr-3 font-medium text-slate-900">Google Cloud SQL (SSD)</td>
+                  <td className="py-2.5 px-3 font-semibold text-slate-800">$0.170</td>
+                  <td className="py-2.5 px-3 font-semibold text-slate-800">$0.080</td>
+                  <td className="py-2.5 px-3 text-rose-600 font-medium">No (One-way)</td>
+                  <td className="py-2.5 px-3">None included</td>
+                  <td className="py-2.5 pl-3">
+                    <a href="https://cloud.google.com/sql/pricing" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                      Google Cloud Docs ↗
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="py-2.5 pr-3 font-medium text-slate-900">Amazon Aurora (I/O-Optimized)</td>
+                  <td className="py-2.5 px-3 font-semibold text-slate-800">$0.225</td>
+                  <td className="py-2.5 px-3 font-semibold text-slate-800">$0.021</td>
+                  <td className="py-2.5 px-3 text-emerald-600 font-medium">Yes (Auto-dynamic)</td>
+                  <td className="py-2.5 px-3">1 day continuous</td>
+                  <td className="py-2.5 pl-3">
+                    <a href="https://aws.amazon.com/rds/aurora/pricing/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                      Aurora Docs ↗
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
         <div>
           <h2 className="text-2xl font-bold text-slate-900 mb-3">
             The One-Way Street of Managed Database Storage

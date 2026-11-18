@@ -42,6 +42,63 @@ export default function AIAgentCostCalculator() {
             <span className="text-xs text-blue-600 font-mono font-medium">Compounding Window</span>
           </div>
 
+          {/* 1-Click Startup Archetypes */}
+          <div>
+            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider block mb-2">
+              ⚡ 1-Click Real-World Archetypes
+            </span>
+            <div className="grid grid-cols-3 gap-2">
+              <button
+                type="button"
+                onClick={() => {
+                  setInitialPromptTokens(2500);
+                  setAvgStepsPerRun(8);
+                  setToolResultTokensPerStep(800);
+                  setOutputTokensPerStep(400);
+                  setMonthlyRuns(5000);
+                  setModelInputPer1M(3.00);
+                  setModelOutputPer1M(15.00);
+                }}
+                className="px-2.5 py-2 text-left rounded-lg border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all text-xs"
+              >
+                <div className="font-semibold text-slate-800">ReAct Coding</div>
+                <div className="text-[10px] text-slate-500">8 steps • 5k runs</div>
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setInitialPromptTokens(1500);
+                  setAvgStepsPerRun(4);
+                  setToolResultTokensPerStep(400);
+                  setOutputTokensPerStep(250);
+                  setMonthlyRuns(25000);
+                  setModelInputPer1M(0.15);
+                  setModelOutputPer1M(0.60);
+                }}
+                className="px-2.5 py-2 text-left rounded-lg border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all text-xs"
+              >
+                <div className="font-semibold text-slate-800">Support Agent</div>
+                <div className="text-[10px] text-slate-500">4 steps • 25k runs</div>
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setInitialPromptTokens(8000);
+                  setAvgStepsPerRun(15);
+                  setToolResultTokensPerStep(1200);
+                  setOutputTokensPerStep(600);
+                  setMonthlyRuns(1000);
+                  setModelInputPer1M(2.50);
+                  setModelOutputPer1M(10.00);
+                }}
+                className="px-2.5 py-2 text-left rounded-lg border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all text-xs"
+              >
+                <div className="font-semibold text-slate-800">Deep Research</div>
+                <div className="text-[10px] text-slate-500">15 steps • 1k runs</div>
+              </button>
+            </div>
+          </div>
+
           <div className="space-y-4">
             <div>
               <div className="flex justify-between text-xs mb-1">
