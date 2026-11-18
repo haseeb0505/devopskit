@@ -2,25 +2,99 @@
 
 import { useState } from "react";
 import { Copy, Check } from "lucide-react";
+import ShareBar from "./ShareBar";
+
+const ARCHETYPES = {
+  authClaims: JSON.stringify(
+    {
+      sub: "usr_948194a82b",
+      name: "Sarah Connor",
+      email: "sarah.connor@cyberdyne.io",
+      roles: ["admin", "devops_engineer", "billing_manager"],
+      organization: {
+        id: "org_7721",
+        name: "Resistance Infra",
+        tier: "enterprise_scale"
+      },
+      permissions: [
+        "cluster:create",
+        "cluster:delete",
+        "dns:modify",
+        "secrets:decrypt",
+        "billing:read_write"
+      ],
+      iat: 1742467200,
+      exp: 1742553600
+    },
+    null,
+    2
+  ),
+  catalogApi: JSON.stringify(
+    {
+      status: 200,
+      data: {
+        products: [
+          {
+            id: "prod_101",
+            title: "Cloud FinOps Monitoring Agent",
+            sku: "FIN-AGENT-PRO",
+            price: 299.00,
+            currency: "USD",
+            tags: ["cloud", "finops", "aws", "gcp"],
+            stock: { in_stock: true, inventory: 420 },
+            metadata: { version: "2.4.1", region: "us-east-1" }
+          },
+          {
+            id: "prod_102",
+            title: "Autonomous Prompt Caching Proxy",
+            sku: "LLM-CACHE-MAX",
+            price: 499.00,
+            currency: "USD",
+            tags: ["ai", "caching", "anthropic", "openai"],
+            stock: { in_stock: true, inventory: 150 },
+            metadata: { version: "1.0.8", region: "global" }
+          }
+        ],
+        pagination: { page: 1, per_page: 20, total_records: 128, has_more: true }
+      }
+    },
+    null,
+    2
+  ),
+  aiFunction: JSON.stringify(
+    {
+      type: "function",
+      function: {
+        name: "calculate_cloud_egress_and_savings",
+        description: "Calculates monthly internet data transfer costs across AWS, GCP, and Azure and projects Cloudflare R2 zero-egress savings.",
+        parameters: {
+          type: "object",
+          properties: {
+            monthlyTransferGB: {
+              type: "number",
+              description: "Total outbound gigabytes transferred to the public internet per month"
+            },
+            cdnCacheHitPercent: {
+              type: "number",
+              description: "Percentage of requests absorbed by CDN edge cache (0 to 99)"
+            },
+            cloudProvider: {
+              type: "string",
+              enum: ["aws", "gcp", "azure"],
+              description: "Origin cloud provider infrastructure host"
+            }
+          },
+          required: ["monthlyTransferGB", "cdnCacheHitPercent", "cloudProvider"]
+        }
+      }
+    },
+    null,
+    2
+  )
+};
 
 export default function JsonPayloadSizeCalculator() {
-  const [jsonInput, setJsonInput] = useState<string>(
-    JSON.stringify(
-      {
-        status: "success",
-        data: {
-          items: [
-            { id: 1, name: "Production Kubernetes Node", active: true, load: 0.42 },
-            { id: 2, name: "Staging Redis Cache", active: false, load: 0.1 },
-            { id: 3, name: "API Gateway Envoy Proxy", active: true, load: 0.88 },
-          ],
-          pagination: { page: 1, total: 3, perPage: 20 },
-        },
-      },
-      null,
-      2
-    )
-  );
+  const [jsonInput, setJsonInput] = useState<string>(ARCHETYPES.catalogApi);
   const [copied, setCopied] = useState<boolean>(false);
 
   const rawBytes = new Blob([jsonInput]).size;
@@ -39,6 +113,17 @@ export default function JsonPayloadSizeCalculator() {
   const estimatedGzipBytes = Math.round(minifiedBytes * 0.32);
   const estimatedLLMTokens = Math.ceil(minifiedBytes / 3.6);
 
+  const markdownSnippet = [
+    `### 📦 JSON Payload Weight & Token Analysis`,
+    `**Status:** ${isValidJson ? "Valid JSON" : "Syntax Error"} | **Tokens:** ~${estimatedLLMTokens.toLocaleString()} tokens\n`,
+    `| Metric | Size | Description |`,
+    `| :--- | :--- | :--- |`,
+    `| **Raw Formatted** | ${rawBytes > 1024 ? `${(rawBytes / 1024).toFixed(2)} KB` : `${rawBytes} bytes`} | Formatted with indentation |`,
+    `| **Minified Size** | ${minifiedBytes > 1024 ? `${(minifiedBytes / 1024).toFixed(2)} KB` : `${minifiedBytes} bytes`} | Whitespace stripped |`,
+    `| **Estimated Gzip Wire** | ${estimatedGzipBytes > 1024 ? `${(estimatedGzipBytes / 1024).toFixed(2)} KB` : `${estimatedGzipBytes} bytes`} | ~68% compression reduction |`,
+    `| **Estimated LLM Tokens** | ~${estimatedLLMTokens.toLocaleString()} | ~3.6 bytes per token |`,
+  ].join("\n");
+
   const handleCopy = () => {
     navigator.clipboard.writeText(
       `DevOpsKit JSON Payload Analysis:\nRaw: ${(rawBytes / 1024).toFixed(2)} KB (${rawBytes} bytes)\nMinified: ${(minifiedBytes / 1024).toFixed(2)} KB (${minifiedBytes} bytes)\nEstimated Gzip: ${(estimatedGzipBytes / 1024).toFixed(2)} KB\nEst. LLM Tokens: ~${estimatedLLMTokens.toLocaleString()} tokens`
@@ -49,6 +134,9 @@ export default function JsonPayloadSizeCalculator() {
 
   return (
     <div className="space-y-8">
+      {/* 1-Click Share & Export Bar */}
+      <ShareBar title="JSON payload analysis" markdownSnippet={markdownSnippet} />
+
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* Editor */}
         <div className="lg:col-span-6 space-y-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
@@ -63,6 +151,39 @@ export default function JsonPayloadSizeCalculator() {
             >
               {isValidJson ? "Valid JSON" : "Syntax Error"}
             </span>
+          </div>
+
+          {/* 1-Click Real-World Archetypes */}
+          <div>
+            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider block mb-2">
+              ⚡ 1-Click Real-World Archetypes
+            </span>
+            <div className="grid grid-cols-3 gap-2">
+              <button
+                type="button"
+                onClick={() => setJsonInput(ARCHETYPES.authClaims)}
+                className="px-2.5 py-2 text-left rounded-lg border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all text-xs"
+              >
+                <div className="font-semibold text-slate-800">Auth Token</div>
+                <div className="text-[10px] text-slate-500">JWT Claims</div>
+              </button>
+              <button
+                type="button"
+                onClick={() => setJsonInput(ARCHETYPES.catalogApi)}
+                className="px-2.5 py-2 text-left rounded-lg border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all text-xs"
+              >
+                <div className="font-semibold text-slate-800">Product List</div>
+                <div className="text-[10px] text-slate-500">REST Catalog</div>
+              </button>
+              <button
+                type="button"
+                onClick={() => setJsonInput(ARCHETYPES.aiFunction)}
+                className="px-2.5 py-2 text-left rounded-lg border border-indigo-200 bg-indigo-50/30 hover:border-indigo-500 hover:bg-indigo-50/70 transition-all text-xs"
+              >
+                <div className="font-semibold text-indigo-900">AI Function</div>
+                <div className="text-[10px] text-indigo-700">Tool Schema</div>
+              </button>
+            </div>
           </div>
 
           <textarea

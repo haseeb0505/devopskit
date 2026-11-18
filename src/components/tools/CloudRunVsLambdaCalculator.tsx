@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { calculateServerless, ServerlessResult } from "@/lib/calculators";
 import { Copy, Check } from "lucide-react";
+import ShareBar from "./ShareBar";
 
 export default function CloudRunVsLambdaCalculator() {
   const [monthlyRequests, setMonthlyRequests] = useState<number>(10000000);
@@ -11,6 +12,33 @@ export default function CloudRunVsLambdaCalculator() {
   const [concurrencyPerInstance, setConcurrencyPerInstance] = useState<number>(8);
   const [copied, setCopied] = useState<boolean>(false);
 
+  // Read URL query params on mount
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    const reqs = params.get("reqs");
+    const dur = params.get("dur");
+    const mem = params.get("mem");
+    const conc = params.get("conc");
+
+    if (reqs && !isNaN(Number(reqs))) setMonthlyRequests(Number(reqs));
+    if (dur && !isNaN(Number(dur))) setAvgDurationMs(Number(dur));
+    if (mem && !isNaN(Number(mem))) setMemoryMB(Number(mem));
+    if (conc && !isNaN(Number(conc))) setConcurrencyPerInstance(Number(conc));
+  }, []);
+
+  // Sync state to URL search params
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams();
+    params.set("reqs", monthlyRequests.toString());
+    params.set("dur", avgDurationMs.toString());
+    params.set("mem", memoryMB.toString());
+    params.set("conc", concurrencyPerInstance.toString());
+    const newUrl = `${window.location.pathname}?${params.toString()}`;
+    window.history.replaceState(null, "", newUrl);
+  }, [monthlyRequests, avgDurationMs, memoryMB, concurrencyPerInstance]);
+
   const result: ServerlessResult = calculateServerless({
     monthlyRequests,
     avgDurationMs,
@@ -18,6 +46,23 @@ export default function CloudRunVsLambdaCalculator() {
     vcpuCount: 1,
     concurrencyPerInstance,
   });
+
+  const applyArchetype = (reqs: number, dur: number, mem: number, conc: number) => {
+    setMonthlyRequests(reqs);
+    setAvgDurationMs(dur);
+    setMemoryMB(mem);
+    setConcurrencyPerInstance(conc);
+  };
+
+  const markdownSnippet = [
+    `### ⚡ Serverless Cost Comparison (Cloud Run vs AWS Lambda)`,
+    `**Workload:** ${monthlyRequests.toLocaleString()} reqs/mo | ${avgDurationMs}ms avg | ${memoryMB}MB | Concurrency: ${concurrencyPerInstance}\n`,
+    `| Platform | Monthly Cost | Free Tier Included |`,
+    `| :--- | :--- | :--- |`,
+    `| **Google Cloud Run** | **$${result.cloudRunMonthly.toFixed(2)}** | 2M reqs + 180k vCPU-s |`,
+    `| **AWS Lambda** | **$${result.lambdaMonthly.toFixed(2)}** | 1M reqs + 400k GB-s |`,
+    `| **Cost Advantage** | **${result.cheaperProvider}** (diff: $${result.monthlyDifference.toFixed(2)}/mo) | - |`,
+  ].join("\n");
 
   const handleCopy = () => {
     navigator.clipboard.writeText(
@@ -29,12 +74,48 @@ export default function CloudRunVsLambdaCalculator() {
 
   return (
     <div className="space-y-8">
+      {/* 1-Click Share & Export Bar */}
+      <ShareBar title="serverless cost breakdown" markdownSnippet={markdownSnippet} />
+
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* Controls */}
         <div className="lg:col-span-5 space-y-6 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
           <div className="flex items-center justify-between pb-3 border-b border-slate-100">
             <h3 className="font-semibold text-slate-900 text-base">Serverless Workload</h3>
             <span className="text-xs text-indigo-600 font-mono font-medium">Free Tiers Included</span>
+          </div>
+
+          {/* 1-Click Startup Archetypes */}
+          <div>
+            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider block mb-2">
+              ⚡ 1-Click Real-World Archetypes
+            </span>
+            <div className="grid grid-cols-3 gap-2">
+              <button
+                type="button"
+                onClick={() => applyArchetype(1500000, 120, 256, 4)}
+                className="px-2.5 py-2 text-left rounded-lg border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all text-xs"
+              >
+                <div className="font-semibold text-slate-800">Light API</div>
+                <div className="text-[10px] text-slate-500">1.5M • 120ms</div>
+              </button>
+              <button
+                type="button"
+                onClick={() => applyArchetype(15000000, 200, 512, 16)}
+                className="px-2.5 py-2 text-left rounded-lg border border-blue-300 bg-blue-50/30 hover:border-blue-500 hover:bg-blue-50/70 transition-all text-xs"
+              >
+                <div className="font-semibold text-blue-900">Microservice</div>
+                <div className="text-[10px] text-blue-700">15M • 16 conc</div>
+              </button>
+              <button
+                type="button"
+                onClick={() => applyArchetype(5000000, 1500, 1024, 1)}
+                className="px-2.5 py-2 text-left rounded-lg border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all text-xs"
+              >
+                <div className="font-semibold text-slate-800">Async Worker</div>
+                <div className="text-[10px] text-slate-500">5M • 1.5s • 1GB</div>
+              </button>
+            </div>
           </div>
 
           <div className="space-y-4">

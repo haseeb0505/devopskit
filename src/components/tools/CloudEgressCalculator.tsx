@@ -60,6 +60,12 @@ export default function CloudEgressCalculator() {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const applyArchetype = (gb: number, hit: number, provider: "aws" | "gcp" | "azure") => {
+    setMonthlyTransferGB(gb);
+    setCdnCacheHitPercent(hit);
+    setCloudProvider(provider);
+  };
+
   return (
     <div className="space-y-8">
       {/* 1-Click Share & Export Bar */}
@@ -71,6 +77,39 @@ export default function CloudEgressCalculator() {
           <div className="flex items-center justify-between pb-3 border-b border-slate-100">
             <h3 className="font-semibold text-slate-900 text-base">Bandwidth Parameters</h3>
             <span className="text-xs text-indigo-600 font-mono font-medium">Egress Optimization</span>
+          </div>
+
+          {/* 1-Click Startup Archetypes */}
+          <div>
+            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider block mb-2">
+              ⚡ 1-Click Real-World Archetypes
+            </span>
+            <div className="grid grid-cols-3 gap-2">
+              <button
+                type="button"
+                onClick={() => applyArchetype(15000, 85, "aws")}
+                className="px-2.5 py-2 text-left rounded-lg border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all text-xs"
+              >
+                <div className="font-semibold text-slate-800">SaaS Web App</div>
+                <div className="text-[10px] text-slate-500">15 TB • 85% hit</div>
+              </button>
+              <button
+                type="button"
+                onClick={() => applyArchetype(120000, 40, "aws")}
+                className="px-2.5 py-2 text-left rounded-lg border border-amber-300 bg-amber-50/30 hover:border-amber-500 hover:bg-amber-50/70 transition-all text-xs"
+              >
+                <div className="font-semibold text-amber-900">High-Egress S3</div>
+                <div className="text-[10px] text-amber-700">120 TB • Media</div>
+              </button>
+              <button
+                type="button"
+                onClick={() => applyArchetype(50000, 15, "gcp")}
+                className="px-2.5 py-2 text-left rounded-lg border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all text-xs"
+              >
+                <div className="font-semibold text-slate-800">API Gateway</div>
+                <div className="text-[10px] text-slate-500">50 TB • GCP</div>
+              </button>
+            </div>
           </div>
 
           <div className="space-y-4">

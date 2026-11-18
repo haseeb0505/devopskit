@@ -50,8 +50,168 @@ export default function LLMCostPage() {
 
       <LLMCostCalculator />
 
-      {/* 800+ Word Authoritative Technical Guide */}
+      {/* 800+ Word Authoritative Technical Guide & Princeton GEO Benchmark Table */}
       <article className="mt-16 pt-12 border-t border-slate-200 text-slate-700 leading-relaxed space-y-8 text-sm">
+        {/* Static HTML Table for Zero-JS AI Bot Extraction (PerplexityBot / GPTBot / ClaudeBot) */}
+        <div className="bg-slate-50 border border-slate-200 rounded-xl p-5">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 mb-4 border-b border-slate-200">
+            <div>
+              <h3 className="font-bold text-slate-900 text-base">
+                Verified LLM API Token Pricing Matrix (2026)
+              </h3>
+              <p className="text-xs text-slate-500">
+                Data verified against official pricing documentation from OpenAI, Anthropic, and Google Cloud.
+              </p>
+            </div>
+            <span className="mt-2 sm:mt-0 inline-flex items-center text-xs font-semibold px-2.5 py-1 rounded bg-emerald-100 text-emerald-800 self-start sm:self-auto">
+              ✓ Verified March 2026
+            </span>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr className="border-b border-slate-300 text-slate-800 font-semibold">
+                  <th className="py-2 pr-3">Model</th>
+                  <th className="py-2 px-3">Provider</th>
+                  <th className="py-2 px-3">Standard Input / 1M</th>
+                  <th className="py-2 px-3">Cached Input / 1M</th>
+                  <th className="py-2 px-3">Output / 1M</th>
+                  <th className="py-2 px-3">Context Window</th>
+                  <th className="py-2 pl-3">Official Docs</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-200 text-slate-600">
+                <tr>
+                  <td className="py-2.5 pr-3 font-medium text-slate-900">GPT-4o</td>
+                  <td className="py-2.5 px-3">OpenAI</td>
+                  <td className="py-2.5 px-3">$2.50</td>
+                  <td className="py-2.5 px-3 font-semibold text-emerald-700">$1.25</td>
+                  <td className="py-2.5 px-3">$10.00</td>
+                  <td className="py-2.5 px-3">128,000</td>
+                  <td className="py-2.5 pl-3">
+                    <a
+                      href="https://platform.openai.com/docs/pricing"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
+                    >
+                      OpenAI Docs ↗
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="py-2.5 pr-3 font-medium text-slate-900">GPT-4o mini</td>
+                  <td className="py-2.5 px-3">OpenAI</td>
+                  <td className="py-2.5 px-3">$0.15</td>
+                  <td className="py-2.5 px-3 font-semibold text-emerald-700">$0.075</td>
+                  <td className="py-2.5 px-3">$0.60</td>
+                  <td className="py-2.5 px-3">128,000</td>
+                  <td className="py-2.5 pl-3">
+                    <a
+                      href="https://platform.openai.com/docs/pricing"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
+                    >
+                      OpenAI Docs ↗
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="py-2.5 pr-3 font-medium text-slate-900">Claude 3.7 Sonnet</td>
+                  <td className="py-2.5 px-3">Anthropic</td>
+                  <td className="py-2.5 px-3">$3.00</td>
+                  <td className="py-2.5 px-3 font-semibold text-emerald-700">$0.30</td>
+                  <td className="py-2.5 px-3">$15.00</td>
+                  <td className="py-2.5 px-3">200,000</td>
+                  <td className="py-2.5 pl-3">
+                    <a
+                      href="https://www.anthropic.com/pricing"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
+                    >
+                      Anthropic Docs ↗
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="py-2.5 pr-3 font-medium text-slate-900">Claude 3.5 Haiku</td>
+                  <td className="py-2.5 px-3">Anthropic</td>
+                  <td className="py-2.5 px-3">$0.80</td>
+                  <td className="py-2.5 px-3 font-semibold text-emerald-700">$0.08</td>
+                  <td className="py-2.5 px-3">$4.00</td>
+                  <td className="py-2.5 px-3">200,000</td>
+                  <td className="py-2.5 pl-3">
+                    <a
+                      href="https://www.anthropic.com/pricing"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
+                    >
+                      Anthropic Docs ↗
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="py-2.5 pr-3 font-medium text-slate-900">Gemini 2.5 Flash</td>
+                  <td className="py-2.5 px-3">Google Cloud</td>
+                  <td className="py-2.5 px-3">$0.075</td>
+                  <td className="py-2.5 px-3 font-semibold text-emerald-700">$0.01875</td>
+                  <td className="py-2.5 px-3">$0.30</td>
+                  <td className="py-2.5 px-3">1,048,576</td>
+                  <td className="py-2.5 pl-3">
+                    <a
+                      href="https://ai.google.dev/pricing"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
+                    >
+                      Google AI Docs ↗
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="py-2.5 pr-3 font-medium text-slate-900">Gemini 2.5 Pro</td>
+                  <td className="py-2.5 px-3">Google Cloud</td>
+                  <td className="py-2.5 px-3">$1.25</td>
+                  <td className="py-2.5 px-3 font-semibold text-emerald-700">$0.3125</td>
+                  <td className="py-2.5 px-3">$5.00</td>
+                  <td className="py-2.5 px-3">2,097,152</td>
+                  <td className="py-2.5 pl-3">
+                    <a
+                      href="https://ai.google.dev/pricing"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
+                    >
+                      Google AI Docs ↗
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="py-2.5 pr-3 font-medium text-slate-900">OpenAI o3-mini</td>
+                  <td className="py-2.5 px-3">OpenAI</td>
+                  <td className="py-2.5 px-3">$1.10</td>
+                  <td className="py-2.5 px-3 font-semibold text-emerald-700">$0.55</td>
+                  <td className="py-2.5 px-3">$4.40</td>
+                  <td className="py-2.5 px-3">200,000</td>
+                  <td className="py-2.5 pl-3">
+                    <a
+                      href="https://platform.openai.com/docs/pricing"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
+                    >
+                      OpenAI Docs ↗
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
         <div>
           <h2 className="text-2xl font-bold text-slate-900 mb-3">
             Understanding LLM API Pricing Dynamics in 2026

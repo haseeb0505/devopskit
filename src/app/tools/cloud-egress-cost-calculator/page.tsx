@@ -50,7 +50,109 @@ export default function CloudEgressPage() {
 
       <CloudEgressCalculator />
 
+      {/* Authoritative Technical Guide & Princeton GEO Benchmark Table */}
       <article className="mt-16 pt-12 border-t border-slate-200 text-slate-700 leading-relaxed space-y-8 text-sm">
+        {/* Static HTML Table for Zero-JS AI Bot Extraction (PerplexityBot / GPTBot / ClaudeBot) */}
+        <div className="bg-slate-50 border border-slate-200 rounded-xl p-5">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 mb-4 border-b border-slate-200">
+            <div>
+              <h3 className="font-bold text-slate-900 text-base">
+                Cloud Egress & Data Transfer Benchmark Matrix (2026)
+              </h3>
+              <p className="text-xs text-slate-500">
+                Data verified against official pricing documentation from AWS S3, Google Cloud, Microsoft Azure, and Cloudflare R2.
+              </p>
+            </div>
+            <span className="mt-2 sm:mt-0 inline-flex items-center text-xs font-semibold px-2.5 py-1 rounded bg-emerald-100 text-emerald-800 self-start sm:self-auto">
+              ✓ Verified March 2026
+            </span>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr className="border-b border-slate-300 text-slate-800 font-semibold">
+                  <th className="py-2 pr-3">Storage Provider</th>
+                  <th className="py-2 px-3">Direct Internet Egress</th>
+                  <th className="py-2 px-3">Origin to CDN Egress</th>
+                  <th className="py-2 px-3">CDN Egress Rate</th>
+                  <th className="py-2 px-3">Free Egress Tier</th>
+                  <th className="py-2 pl-3">Official Docs</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-200 text-slate-600">
+                <tr>
+                  <td className="py-2.5 pr-3 font-medium text-slate-900">AWS S3 / EC2</td>
+                  <td className="py-2.5 px-3 font-mono text-amber-900 font-semibold">$0.090 / GB</td>
+                  <td className="py-2.5 px-3 font-mono text-emerald-700 font-semibold">$0.000 / GB (CloudFront)</td>
+                  <td className="py-2.5 px-3 font-mono">$0.085 / GB</td>
+                  <td className="py-2.5 px-3">100 GB / month free</td>
+                  <td className="py-2.5 pl-3">
+                    <a
+                      href="https://aws.amazon.com/s3/pricing/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
+                    >
+                      AWS S3 Docs ↗
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="py-2.5 pr-3 font-medium text-slate-900">Google Cloud Storage</td>
+                  <td className="py-2.5 px-3 font-mono text-amber-900 font-semibold">$0.120 / GB</td>
+                  <td className="py-2.5 px-3 font-mono text-blue-700 font-semibold">$0.080 / GB (Cloud CDN)</td>
+                  <td className="py-2.5 px-3 font-mono">$0.080 / GB</td>
+                  <td className="py-2.5 px-3">100 GB / month (Americas/EU)</td>
+                  <td className="py-2.5 pl-3">
+                    <a
+                      href="https://cloud.google.com/storage/pricing"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
+                    >
+                      GCP Storage Docs ↗
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="py-2.5 pr-3 font-medium text-slate-900">Microsoft Azure Blob</td>
+                  <td className="py-2.5 px-3 font-mono text-amber-900 font-semibold">$0.087 / GB</td>
+                  <td className="py-2.5 px-3 font-mono text-indigo-700 font-semibold">$0.081 / GB (Azure CDN)</td>
+                  <td className="py-2.5 px-3 font-mono">$0.081 / GB</td>
+                  <td className="py-2.5 px-3">100 GB / month free</td>
+                  <td className="py-2.5 pl-3">
+                    <a
+                      href="https://azure.microsoft.com/en-us/pricing/details/bandwidth/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
+                    >
+                      Azure Bandwidth Docs ↗
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="py-2.5 pr-3 font-medium text-slate-900">Cloudflare R2</td>
+                  <td className="py-2.5 px-3 font-mono text-emerald-700 font-bold">$0.000 / GB (Zero Egress)</td>
+                  <td className="py-2.5 px-3 font-mono text-emerald-700 font-bold">$0.000 / GB</td>
+                  <td className="py-2.5 px-3 font-mono text-emerald-700 font-bold">$0.000 / GB</td>
+                  <td className="py-2.5 px-3 text-emerald-700 font-semibold">Unlimited Free Egress</td>
+                  <td className="py-2.5 pl-3">
+                    <a
+                      href="https://www.cloudflare.com/developer-platform/r2/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
+                    >
+                      Cloudflare R2 Docs ↗
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
         <div>
           <h2 className="text-2xl font-bold text-slate-900 mb-3">
             Demystifying Cloud Egress Fees

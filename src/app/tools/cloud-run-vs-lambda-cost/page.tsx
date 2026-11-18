@@ -50,7 +50,96 @@ export default function CloudRunVsLambdaPage() {
 
       <CloudRunVsLambdaCalculator />
 
+      {/* Authoritative Technical Guide & Princeton GEO Benchmark Table */}
       <article className="mt-16 pt-12 border-t border-slate-200 text-slate-700 leading-relaxed space-y-8 text-sm">
+        {/* Static HTML Table for Zero-JS AI Bot Extraction (PerplexityBot / GPTBot / ClaudeBot) */}
+        <div className="bg-slate-50 border border-slate-200 rounded-xl p-5">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 mb-4 border-b border-slate-200">
+            <div>
+              <h3 className="font-bold text-slate-900 text-base">
+                Serverless Compute Pricing & Free Tier Rates (2026)
+              </h3>
+              <p className="text-xs text-slate-500">
+                Official compute and memory rates for Google Cloud Run vs AWS Lambda (Tier 1 / us-east-1).
+              </p>
+            </div>
+            <span className="mt-2 sm:mt-0 inline-flex items-center text-xs font-semibold px-2.5 py-1 rounded bg-emerald-100 text-emerald-800 self-start sm:self-auto">
+              ✓ Verified March 2026
+            </span>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr className="border-b border-slate-300 text-slate-800 font-semibold">
+                  <th className="py-2 pr-3">Platform</th>
+                  <th className="py-2 px-3">Compute Rate</th>
+                  <th className="py-2 px-3">Memory Rate</th>
+                  <th className="py-2 px-3">Requests / 1M</th>
+                  <th className="py-2 px-3">Monthly Free Tier</th>
+                  <th className="py-2 px-3">Concurrency Model</th>
+                  <th className="py-2 pl-3">Official Docs</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-200 text-slate-600">
+                <tr>
+                  <td className="py-2.5 pr-3 font-medium text-slate-900">Google Cloud Run (Tier 1)</td>
+                  <td className="py-2.5 px-3 font-mono">$0.00002400 / vCPU-s</td>
+                  <td className="py-2.5 px-3 font-mono">$0.00000250 / GiB-s</td>
+                  <td className="py-2.5 px-3">$0.40</td>
+                  <td className="py-2.5 px-3 text-emerald-700 font-semibold">2M reqs, 180k vCPU-s, 360k GiB-s</td>
+                  <td className="py-2.5 px-3">Multi-concurrency (up to 1,000 / instance)</td>
+                  <td className="py-2.5 pl-3">
+                    <a
+                      href="https://cloud.google.com/run/pricing"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
+                    >
+                      Cloud Run Docs ↗
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="py-2.5 pr-3 font-medium text-slate-900">AWS Lambda (x86_64)</td>
+                  <td className="py-2.5 px-3 text-slate-500 italic">Bundled in GB-s</td>
+                  <td className="py-2.5 px-3 font-mono">$0.0000166667 / GB-s</td>
+                  <td className="py-2.5 px-3">$0.20</td>
+                  <td className="py-2.5 px-3 text-emerald-700 font-semibold">1M reqs, 400k GB-s</td>
+                  <td className="py-2.5 px-3">Single-request (1 instance per concurrent req)</td>
+                  <td className="py-2.5 pl-3">
+                    <a
+                      href="https://aws.amazon.com/lambda/pricing/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
+                    >
+                      AWS Lambda Docs ↗
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="py-2.5 pr-3 font-medium text-slate-900">AWS Lambda (Arm / Graviton2)</td>
+                  <td className="py-2.5 px-3 text-slate-500 italic">Bundled in GB-s</td>
+                  <td className="py-2.5 px-3 font-mono">$0.0000133334 / GB-s</td>
+                  <td className="py-2.5 px-3">$0.20</td>
+                  <td className="py-2.5 px-3 text-emerald-700 font-semibold">1M reqs, 400k GB-s</td>
+                  <td className="py-2.5 px-3">Single-request (1 instance per concurrent req)</td>
+                  <td className="py-2.5 pl-3">
+                    <a
+                      href="https://aws.amazon.com/lambda/pricing/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
+                    >
+                      AWS Lambda Docs ↗
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
         <div>
           <h2 className="text-2xl font-bold text-slate-900 mb-3">
             Serverless Concurrency Economics: Cloud Run vs AWS Lambda

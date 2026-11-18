@@ -89,32 +89,35 @@ export default function LLMCostCalculator() {
             <span className="text-xs text-slate-500 font-mono">Real-Time Reactive</span>
           </div>
 
-          {/* Quick Presets */}
+          {/* 1-Click Startup Archetypes */}
           <div>
-            <label className="text-slate-700 font-medium text-xs block mb-2">
-              Preset Scenarios
-            </label>
+            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider block mb-2">
+              ⚡ 1-Click Real-World Archetypes
+            </span>
             <div className="grid grid-cols-3 gap-2">
               <button
                 type="button"
-                onClick={() => applyPreset(500, 150, 0, 2000)}
-                className="px-2.5 py-1.5 text-xs rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium transition-colors"
+                onClick={() => applyPreset(1500, 400, 800, 4000)}
+                className="px-2.5 py-2 text-left rounded-lg border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all text-xs"
               >
-                Chat Bot
+                <div className="font-semibold text-slate-800">Seed AI Wrapper</div>
+                <div className="text-[10px] text-slate-500">1.5k ctx • 4k reqs</div>
               </button>
               <button
                 type="button"
-                onClick={() => applyPreset(12000, 800, 8000, 5000)}
-                className="px-2.5 py-1.5 text-xs rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium transition-colors"
+                onClick={() => applyPreset(8000, 800, 5000, 12000)}
+                className="px-2.5 py-2 text-left rounded-lg border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all text-xs"
               >
-                RAG Pipeline
+                <div className="font-semibold text-slate-800">Production RAG</div>
+                <div className="text-[10px] text-slate-500">8k ctx • 12k reqs</div>
               </button>
               <button
                 type="button"
-                onClick={() => applyPreset(25000, 2500, 15000, 1000)}
-                className="px-2.5 py-1.5 text-xs rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium transition-colors"
+                onClick={() => applyPreset(20000, 1500, 14000, 25000)}
+                className="px-2.5 py-2 text-left rounded-lg border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all text-xs"
               >
-                Agent Loop
+                <div className="font-semibold text-slate-800">Enterprise Chatbot</div>
+                <div className="text-[10px] text-slate-500">20k ctx • 25k reqs</div>
               </button>
             </div>
           </div>
