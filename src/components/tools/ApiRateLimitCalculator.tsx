@@ -34,6 +34,51 @@ export default function ApiRateLimitCalculator() {
             <span className="text-xs text-amber-700 font-mono font-medium">Token-Bucket Model</span>
           </div>
 
+          {/* 1-Click Startup Archetypes */}
+          <div>
+            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider block mb-2">
+              ⚡ 1-Click Real-World Archetypes
+            </span>
+            <div className="grid grid-cols-3 gap-2">
+              <button
+                type="button"
+                onClick={() => {
+                  setTargetRPS(50);
+                  setP95LatencyMs(120);
+                  setBurstMultiplier(2);
+                }}
+                className="px-2.5 py-2 text-left rounded-lg border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all text-xs"
+              >
+                <div className="font-semibold text-slate-800">Payment API</div>
+                <div className="text-[10px] text-slate-500">50 RPS • 2x Burst</div>
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setTargetRPS(300);
+                  setP95LatencyMs(45);
+                  setBurstMultiplier(3);
+                }}
+                className="px-2.5 py-2 text-left rounded-lg border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all text-xs"
+              >
+                <div className="font-semibold text-slate-800">Public REST</div>
+                <div className="text-[10px] text-slate-500">300 RPS • 3x Burst</div>
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setTargetRPS(1200);
+                  setP95LatencyMs(25);
+                  setBurstMultiplier(5);
+                }}
+                className="px-2.5 py-2 text-left rounded-lg border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all text-xs"
+              >
+                <div className="font-semibold text-slate-800">Webhook Sink</div>
+                <div className="text-[10px] text-slate-500">1.2k RPS • 5x Burst</div>
+              </button>
+            </div>
+          </div>
+
           <div className="space-y-4">
             <div>
               <div className="flex justify-between text-xs mb-1">

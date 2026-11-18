@@ -59,9 +59,53 @@ export default function JwtDecoder() {
       </div>
 
       <div className="space-y-4">
-        <label className="text-xs font-mono uppercase tracking-wider text-slate-500 block">
-          Paste Encoded JWT
-        </label>
+        <div className="flex items-center justify-between">
+          <label className="text-xs font-mono uppercase tracking-wider text-slate-500 block">
+            Paste Encoded JWT
+          </label>
+          <span className="text-xs text-slate-400 font-mono">Real-world Samples</span>
+        </div>
+
+        {/* 1-Click Startup Archetypes */}
+        <div className="grid grid-cols-3 gap-2">
+          <button
+            type="button"
+            onClick={() => {
+              setJwtString(
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c3JfMGExYjJjM2QiLCJuYW1lIjoiQWxleCBFbmc8ZW5nQGNvbXBhbnkuaW8+IiwiY29tcGFueV9pZCI6Im9yZ185OGY3ZTYiLCJyb2xlcyI6WyJkZXZvcHMiLCJhZG1pbiJdLCJpYXQiOjE3NDIzOTYwMDAsImV4cCI6MTg0MjM5NjAwMH0.c4aY6d8f8e8b"
+              );
+            }}
+            className="px-2.5 py-2 text-left rounded-lg border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all text-xs"
+          >
+            <div className="font-semibold text-slate-800">OAuth Access Token</div>
+            <div className="text-[10px] text-slate-500">Roles • Valid Exp</div>
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              setJwtString(
+                "eyJhbGciOiJSUzI1NiIsImtpZCI6IjFhMmIzYyIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vbXktcHJvaiIsImF1ZCI6Im15LXByb2oiLCJhdXRoX3RpbWUiOjE3MTYyMzkwMjIsIl9pZCI6InVzZXJfODgyMSIsImlhdCI6MTUxNjIzOTAyMiwiZXhwIjoxNTE2MjQwMDIyfQ.sample"
+              );
+            }}
+            className="px-2.5 py-2 text-left rounded-lg border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all text-xs"
+          >
+            <div className="font-semibold text-slate-800">Expired Token</div>
+            <div className="text-[10px] text-slate-500">Notice Expired Warning</div>
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              setJwtString(
+                "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzdmNfYXBpX2dhdGV3YXkiLCJpc3MiOiJhdXRoMC5jb20iLCJzY29wZSI6InJlYWQ6ZGF0YSB3cml0ZTpjbG91ZCBkZWxldGU6cmVzb3VyY2UiLCJpYXQiOjE3NDIzOTYwMDAsImV4cCI6MTk0MjM5NjAwMH0.sample"
+              );
+            }}
+            className="px-2.5 py-2 text-left rounded-lg border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all text-xs"
+          >
+            <div className="font-semibold text-slate-800">Service Account M2M</div>
+            <div className="text-[10px] text-slate-500">Scoped API Claims</div>
+          </button>
+        </div>
+
         <textarea
           rows={6}
           value={jwtString}

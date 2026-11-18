@@ -50,6 +50,39 @@ export default function CronExpressionTester() {
             <span className="text-xs text-emerald-700 font-mono font-medium">Standard 5-Field</span>
           </div>
 
+          {/* 1-Click Startup Archetypes */}
+          <div>
+            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider block mb-2">
+              ⚡ 1-Click Production Schedules
+            </span>
+            <div className="grid grid-cols-3 gap-2">
+              <button
+                type="button"
+                onClick={() => setExpression("0 0 * * *")}
+                className="px-2.5 py-2 text-left rounded-lg border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all text-xs"
+              >
+                <div className="font-semibold text-slate-800">Midnight Backup</div>
+                <div className="text-[10px] text-slate-500">0 0 * * *</div>
+              </button>
+              <button
+                type="button"
+                onClick={() => setExpression("*/15 * * * *")}
+                className="px-2.5 py-2 text-left rounded-lg border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all text-xs"
+              >
+                <div className="font-semibold text-slate-800">15m Health Check</div>
+                <div className="text-[10px] text-slate-500">*/15 * * * *</div>
+              </button>
+              <button
+                type="button"
+                onClick={() => setExpression("0 9 * * 1-5")}
+                className="px-2.5 py-2 text-left rounded-lg border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all text-xs"
+              >
+                <div className="font-semibold text-slate-800">Workday Sync</div>
+                <div className="text-[10px] text-slate-500">0 9 * * 1-5</div>
+              </button>
+            </div>
+          </div>
+
           <div>
             <label className="text-xs font-mono uppercase tracking-wider text-slate-500 block mb-2">
               Expression Input
