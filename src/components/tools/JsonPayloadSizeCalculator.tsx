@@ -187,10 +187,10 @@ export default function JsonPayloadSizeCalculator() {
           </div>
 
           <textarea
-            rows={12}
+            rows={18}
             value={jsonInput}
             onChange={(e) => setJsonInput(e.target.value)}
-            className="w-full bg-slate-900 border border-slate-800 rounded-xl p-4 font-mono text-xs text-sky-300 focus:outline-none focus:border-blue-500 leading-relaxed shadow-xs"
+            className="w-full min-h-[380px] bg-slate-900 border border-slate-800 rounded-xl p-4 font-mono text-xs text-sky-300 focus:outline-none focus:border-blue-500 leading-relaxed shadow-xs resize-y"
           />
         </div>
 

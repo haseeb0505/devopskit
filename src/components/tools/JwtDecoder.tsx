@@ -63,11 +63,11 @@ export default function JwtDecoder() {
           Paste Encoded JWT
         </label>
         <textarea
-          rows={3}
+          rows={6}
           value={jwtString}
           onChange={(e) => setJwtString(e.target.value)}
           placeholder="eyJhbGciOi..."
-          className="w-full bg-slate-900 border border-slate-800 rounded-xl p-4 font-mono text-xs text-sky-300 focus:outline-none focus:border-blue-500 leading-relaxed shadow-xs"
+          className="w-full min-h-[140px] bg-slate-900 border border-slate-800 rounded-xl p-4 font-mono text-xs text-sky-300 focus:outline-none focus:border-blue-500 leading-relaxed shadow-xs resize-y"
         />
       </div>
 
