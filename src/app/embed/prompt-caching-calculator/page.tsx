@@ -23,7 +23,7 @@ export default function EmbedPromptCachingPage() {
             </span>
           </div>
           <a
-            href="https://devopskit.tool/tools/prompt-caching-calculator"
+            href="https://devopskit.tools/tools/prompt-caching-calculator"
             target="_blank"
             rel="noopener noreferrer"
             className="text-xs text-blue-600 hover:underline font-medium"
