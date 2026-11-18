@@ -137,9 +137,9 @@ export default function JsonPayloadSizeCalculator() {
       {/* 1-Click Share & Export Bar */}
       <ShareBar title="JSON payload analysis" markdownSnippet={markdownSnippet} />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
         {/* Editor */}
-        <div className="lg:col-span-6 space-y-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+        <div className="lg:col-span-6 flex flex-col bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
           <div className="flex items-center justify-between pb-2 border-b border-slate-100">
             <h3 className="font-semibold text-slate-900 text-base">JSON Payload Editor</h3>
             <span
@@ -154,7 +154,7 @@ export default function JsonPayloadSizeCalculator() {
           </div>
 
           {/* 1-Click Real-World Archetypes */}
-          <div>
+          <div className="my-4">
             <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider block mb-2">
               ⚡ 1-Click Real-World Archetypes
             </span>
@@ -187,10 +187,10 @@ export default function JsonPayloadSizeCalculator() {
           </div>
 
           <textarea
-            rows={18}
+            rows={22}
             value={jsonInput}
             onChange={(e) => setJsonInput(e.target.value)}
-            className="w-full min-h-[380px] bg-slate-900 border border-slate-800 rounded-xl p-4 font-mono text-xs text-sky-300 focus:outline-none focus:border-blue-500 leading-relaxed shadow-xs resize-y"
+            className="w-full flex-1 min-h-[440px] bg-slate-900 border border-slate-800 rounded-xl p-4 font-mono text-xs text-sky-300 focus:outline-none focus:border-blue-500 leading-relaxed shadow-xs resize-y"
           />
         </div>
 
