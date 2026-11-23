@@ -332,6 +332,22 @@ export default function LLMCostPage() {
           </div>
         </div>
       </article>
-    </ToolShell>
+    
+        {/* Mini‑Landing‑Page Content – Auto‑generated */}
+        <article className="mt-16 pt-12 border-t border-slate-200 text-slate-700 leading-relaxed space-y-8 text-sm">
+          <h2 className="font-bold text-xl mb-4">Llm Api Cost Calculator – How It Works & Real‑World Usage</h2>
+          <p>This interactive calculator estimates <strong>Llm Api Cost Calculator</strong> based on the official pricing tables of the major cloud providers and LLM vendors. All rates are pulled from the public pricing pages and are frozen at the time of the last repository sync (March 2026).</p>
+          <h3 className="font-semibold mt-4 mb-2">Methodology</h3>
+          <p>We compute cost by multiplying the user‑provided usage metrics (token count, request count, data transfer, etc.) with the per‑unit price. For providers that offer <em>prompt‑caching</em> or <em>reserved‑capacity</em> discounts we apply the documented discount factor. Edge‑case handling (e.g., minimum billing increments) follows the provider’s pricing rules.</p>
+          <h3 className="font-semibold mt-4 mb-2">Example Scenarios</h3>
+          <ul className="list-disc pl-5 space-y-2">
+            <li>Scenario 1 – <strong>Monthly SaaS API usage</strong>: 10 M input tokens, 2 M output tokens, 5 % cached tokens. The calculator shows the breakdown per provider and the total monthly spend.</li>
+            <li>Scenario 2 – <strong>Batch data processing job</strong>: 500 GB egress from Cloud Run in us‑east‑1 vs. AWS Lambda. The tool highlights the cost‑effective region and any free‑tier allowances.</li>
+            <li>Scenario 3 – <strong>Developer‑level CI cost estimate</strong>: 100 k builds per month, each triggering a 2 s Cloud‑Run instance. This demonstrates the impact of per‑invocation pricing vs. per‑second billing.</li>
+          </ul>
+          <p>All numbers are displayed in USD and can be exported as CSV for further analysis.</p>
+        </article>
+
+</ToolShell>
   );
 }
