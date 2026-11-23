@@ -18,6 +18,10 @@ import {
   Lock,
   Clock,
   Zap,
+  ArrowRightLeft,
+  Box,
+  Brain,
+  Globe,
 } from "lucide-react";
 
 export default function Navbar() {
@@ -42,6 +46,24 @@ export default function Navbar() {
       color: "text-blue-600",
       bg: "bg-blue-50",
       tools: [
+        {
+          name: "vLLM GPU Profiler ★",
+          href: "/tools/vllm-gpu-hardware-profiler",
+          desc: "VRAM, KV cache & cluster sizing",
+          icon: Cpu,
+        },
+        {
+          name: "GPT-4o vs Claude 3.7",
+          href: "/tools/gpt-4o-vs-claude-3-7-sonnet-cost",
+          desc: "Prompt caching discount crossover",
+          icon: ArrowRightLeft,
+        },
+        {
+          name: "DeepSeek R1 vs OpenAI o1",
+          href: "/tools/deepseek-r1-vs-openai-o1-cost",
+          desc: "Reasoning & thinking token pricing",
+          icon: Brain,
+        },
         {
           name: "LLM API Cost Calculator",
           href: "/tools/llm-api-cost-calculator",
@@ -75,6 +97,18 @@ export default function Navbar() {
       bg: "bg-indigo-50",
       tools: [
         {
+          name: "AWS NAT Gateway Auditor ★",
+          href: "/tools/aws-nat-gateway-cost-auditor",
+          desc: "S3 endpoint traps, cross-AZ & fck-nat",
+          icon: Network,
+        },
+        {
+          name: "K8s Karpenter Simulator ★",
+          href: "/tools/k8s-karpenter-bin-packing-simulator",
+          desc: "2D bin-packing & DaemonSet tax simulation",
+          icon: Box,
+        },
+        {
           name: "Cloud Run vs AWS Lambda",
           href: "/tools/cloud-run-vs-lambda-cost",
           desc: "Serverless concurrency & free tiers",
@@ -84,7 +118,7 @@ export default function Navbar() {
           name: "Cloud Egress Calculator",
           href: "/tools/cloud-egress-cost-calculator",
           desc: "AWS, GCP & Azure bandwidth vs CDN",
-          icon: Network,
+          icon: Globe,
         },
         {
           name: "Postgres Storage Projection",
@@ -178,7 +212,7 @@ export default function Navbar() {
             {toolsOpen && (
               <div
                 onMouseLeave={() => setToolsOpen(false)}
-                className="absolute left-1/2 -translate-x-1/2 mt-2 w-[720px] rounded-2xl bg-white border border-slate-200 shadow-xl p-5 grid grid-cols-3 gap-6 animate-in fade-in slide-in-from-top-2 duration-150 z-50"
+                className="absolute left-1/2 -translate-x-1/2 mt-2 w-[820px] rounded-2xl bg-white border border-slate-200 shadow-xl p-5 grid grid-cols-3 gap-6 animate-in fade-in slide-in-from-top-2 duration-150 z-50 max-h-[85vh] overflow-y-auto"
               >
                 {toolCategories.map((category) => (
                   <div key={category.name} className="space-y-3">

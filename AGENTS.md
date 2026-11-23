@@ -15,7 +15,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 This document is the living execution tracker and shared context map for all AI agents working across sessions on this repository.
 
 ## 🧭 Project Identity & Architecture
-- **Purpose:** 100% static, client-side Next.js web application providing 15 high-utility Cloud FinOps, AI API, and developer calculators.
+- **Purpose:** 100% static, client-side Next.js web application providing 17 high-utility Cloud FinOps, AI API, and developer calculators.
 - **Live Production URL:** [https://devopskit.tools](https://devopskit.tools) (Hosted on Cloudflare Pages).
 - **Security & Networking:** 100% SSL/TLS with forced HTTP to HTTPS (301) redirect via Cloudflare Edge.
 - **Core Stack:** Next.js (App Router, static export), TypeScript, Tailwind CSS, Lucide icons.
@@ -28,6 +28,7 @@ This document is the living execution tracker and shared context map for all AI 
 
 ### 🟢 1. Core Architecture & UI/UX (100% Complete)
 - [x] **Zero-Backend Architecture:** 100% client-side computation with no server-side secrets or databases.
+- [x] **Unified Multi-Surface Navigation:** 100% synchronization across Homepage, Sticky Sidebar, and Navbar Dropdown across all 17 tools.
 - [x] **Sticky Multi-Category Tool Sidebar:** Quick-access navigation across AI & LLM, Cloud FinOps, and Developer Utilities with active-state indicators.
 - [x] **Balanced 2XL Viewport Layout:** Grid expanded to `col-span-6 / col-span-6` for wide, readable sliders and input controls.
 - [x] **Custom DevOpsKit Brand Iconography:** Custom SVG terminal favicon and browser tab icons (`icon.svg`, `favicon.ico`) deployed.
@@ -38,7 +39,7 @@ This document is the living execution tracker and shared context map for all AI 
 
 ---
 
-### 🟢 2. The 15 Tool Directory (All 15 Live in Production)
+### 🟢 2. The 17 Tool Directory (All 17 Live in Code & Prerendered)
 - [x] **vLLM & Self-Hosted LLM GPU Hardware Profiler (Flagship)**: Models weights, GQA KV cache, Tensor Parallelism, tokens/sec, and cloud GPU cost breakeven.
 - [x] **AWS NAT Gateway & Egress Trap Cost Auditor (Flagship)**: Audits S3 backup leaks, cross-AZ hairpinning, fck-nat savings, and outputs 1-click Terraform.
 - [x] **Kubernetes Karpenter vs Cluster Autoscaler Simulator (Flagship)**: Real 2D bin-packing simulator calculating DaemonSet tax and right-sizing savings.

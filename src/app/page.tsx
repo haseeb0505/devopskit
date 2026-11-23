@@ -14,10 +14,41 @@ import {
   Sparkles,
   Server,
   Network,
+  Brain,
+  ArrowRightLeft,
+  Box,
+  Globe,
 } from "lucide-react";
 
 export default function HomePage() {
   const aiTools = [
+    {
+      title: "vLLM & Self-Hosted GPU Profiler",
+      slug: "vllm-gpu-hardware-profiler",
+      description:
+        "Calculate VRAM requirements, GQA KV cache sizing, tokens/sec throughput, and cloud GPU breakeven for vLLM & Ollama.",
+      icon: Brain,
+      badge: "Flagship Profiler",
+      highlight: "VRAM, KV cache & GPU breakeven",
+    },
+    {
+      title: "GPT-4o vs Claude 3.7 Sonnet Cost",
+      slug: "gpt-4o-vs-claude-3-7-sonnet-cost",
+      description:
+        "Side-by-side cost comparison factoring in prompt caching discounts, output token pricing, and cost crossover points.",
+      icon: ArrowRightLeft,
+      badge: "Head-to-Head Comparison",
+      highlight: "Prompt cache crossover analysis",
+    },
+    {
+      title: "DeepSeek R1 vs OpenAI o1 Cost",
+      slug: "deepseek-r1-vs-openai-o1-cost",
+      description:
+        "Compare reasoning model costs factoring in internal thinking/reasoning tokens, input context, and API rate cards.",
+      icon: Cpu,
+      badge: "Reasoning Token Modeler",
+      highlight: "Thinking token cost comparison",
+    },
     {
       title: "LLM API Cost Calculator",
       slug: "llm-api-cost-calculator",
@@ -58,6 +89,24 @@ export default function HomePage() {
 
   const cloudTools = [
     {
+      title: "AWS NAT Gateway & Egress Auditor",
+      slug: "aws-nat-gateway-cost-auditor",
+      description:
+        "Audit S3 backup leaks, cross-AZ hairpinning, data processing fees, and fck-nat EC2 replacement savings with 1-click Terraform.",
+      icon: Network,
+      badge: "Flagship FinOps",
+      highlight: "Uncover S3 traps & fck-nat ROI",
+    },
+    {
+      title: "K8s Karpenter vs Cluster Autoscaler",
+      slug: "k8s-karpenter-bin-packing-simulator",
+      description:
+        "Interactive 2D bin-packing simulator calculating DaemonSet tax, right-sizing savings, and multi-architecture spot optimization.",
+      icon: Box,
+      badge: "Flagship Simulator",
+      highlight: "2D bin-packing & right-sizing",
+    },
+    {
       title: "Cloud Run vs AWS Lambda",
       slug: "cloud-run-vs-lambda-cost",
       description:
@@ -71,7 +120,7 @@ export default function HomePage() {
       slug: "cloud-egress-cost-calculator",
       description:
         "Model standard internet egress across AWS, GCP, and Azure vs. Cloudflare CDN and zero-egress R2 storage.",
-      icon: Network,
+      icon: Globe,
       badge: "CDN Arbitrage",
       highlight: "Bandwidth Alliance savings",
     },
@@ -141,7 +190,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-mono font-medium mb-6 shadow-2xs">
             <Zap className="h-3.5 w-3.5 text-blue-600" />
-            <span>12 High-Utility Cloud FinOps & AI Calculators</span>
+            <span>17 High-Utility Cloud FinOps & AI Calculators</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight max-w-4xl mx-auto leading-tight sm:leading-tight">
