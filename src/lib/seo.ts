@@ -53,24 +53,12 @@ export function generateStructuredData(
           price: "0",
           priceCurrency: "USD",
         },
-        // Optional creator field to satisfy validators that expect it.
-        creator: {
-          "@type": "Organization",
-          name: siteConfig.shortName,
-          url: siteConfig.url,
-        },
         publisher: {
           "@type": "Organization",
           "@id": `${siteConfig.url}#organization`,
           name: siteConfig.shortName,
           url: siteConfig.url,
           logo: `${siteConfig.url}/favicon.ico`,
-        },
-        // Optional creator field to satisfy validators that expect it.
-        creator: {
-          "@type": "Organization",
-          name: siteConfig.shortName,
-          url: siteConfig.url,
         },
       },
       {
@@ -93,12 +81,6 @@ export function generateStructuredData(
             "@type": "Answer",
             text: faq.answer,
           },
-        // Optional creator field to satisfy validators that expect it.
-        creator: {
-          "@type": "Organization",
-          name: siteConfig.shortName,
-          url: siteConfig.url,
-        },
         })),
       },
     ],
