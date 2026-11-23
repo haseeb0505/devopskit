@@ -4,7 +4,7 @@ import LLMCostCalculator from "@/components/tools/LLMCostCalculator";
 import { generateToolMetadata, generateStructuredData } from "@/lib/seo";
 
 export const metadata: Metadata = generateToolMetadata(
-  "LLM API Cost Calculator — Compare OpenAI, Gemini & Anthropic Rates",
+  "LLM API Cost Calculator — Compare Token Pricing",
   "Calculate and compare daily, monthly, and annual token costs across GPT-4o, Gemini 2.5 Flash, and Claude 3.7. Free client-side calculator with prompt caching.",
   "llm-api-cost-calculator"
 );

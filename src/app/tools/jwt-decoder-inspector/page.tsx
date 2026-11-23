@@ -4,7 +4,7 @@ import JwtDecoder from "@/components/tools/JwtDecoder";
 import { generateToolMetadata, generateStructuredData } from "@/lib/seo";
 
 export const metadata: Metadata = generateToolMetadata(
-  "JWT Token Decoder & Inspector — 100% Client-Side Safe Debugger",
+  "JWT Token Decoder & Safe Client-Side Inspector",
   "Parse JWT headers, claims, expiration countdown, and byte size 100% locally in the browser with zero leak risk. Free developer tool.",
   "jwt-decoder-inspector"
 );

@@ -11,6 +11,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/privacy-policy",
     "/terms",
     "/tools/llm-api-cost-calculator",
+    "/tools/gpt-4o-vs-claude-3-7-sonnet-cost",
+    "/tools/deepseek-r1-vs-openai-o1-cost",
     "/tools/vllm-gpu-hardware-profiler",
     "/tools/aws-nat-gateway-cost-auditor",
     "/tools/k8s-karpenter-bin-packing-simulator",

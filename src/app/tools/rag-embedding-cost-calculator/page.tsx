@@ -4,7 +4,7 @@ import RAGCostCalculator from "@/components/tools/RAGCostCalculator";
 import { generateToolMetadata, generateStructuredData } from "@/lib/seo";
 
 export const metadata: Metadata = generateToolMetadata(
-  "RAG Embedding Cost Calculator — Vector DB Storage & Token Sizing",
+  "RAG Embedding Cost Calculator & Vector DB Sizer",
   "Calculate token consumption, chunking overhead, and vector memory footprint (HNSW / Float32) for RAG pipelines. Free planning tool.",
   "rag-embedding-cost-calculator"
 );

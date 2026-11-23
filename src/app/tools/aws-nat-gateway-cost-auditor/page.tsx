@@ -4,7 +4,7 @@ import NatGatewayAuditor from "@/components/tools/NatGatewayAuditor";
 import { generateToolMetadata, generateStructuredData } from "@/lib/seo";
 
 export const metadata: Metadata = generateToolMetadata(
-  "AWS NAT Gateway & Egress Trap Cost Auditor — S3 Endpoints, Cross-AZ & fck-nat",
+  "AWS NAT Gateway & Egress Trap Cost Auditor",
   "Audit hidden AWS NAT Gateway fees, S3 and ECR data processing costs, cross-AZ traffic penalties, and calculate break-even savings for VPC Gateway Endpoints and fck-nat.",
   "aws-nat-gateway-cost-auditor"
 );

@@ -4,7 +4,7 @@ import VllmHardwareProfiler from "@/components/tools/VllmHardwareProfiler";
 import { generateToolMetadata, generateStructuredData } from "@/lib/seo";
 
 export const metadata: Metadata = generateToolMetadata(
-  "vLLM & Self-Hosted LLM GPU Sizing / VRAM Profiler — Llama 3.3, DeepSeek R1 & Qwen 2.5",
+  "vLLM GPU Sizing & VRAM Hardware Profiler",
   "Calculate exact VRAM requirements, KV cache allocation, Tensor Parallelism, token throughput, and cloud GPU costs for self-hosting open-weights LLMs with vLLM.",
   "vllm-gpu-hardware-profiler"
 );

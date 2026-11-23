@@ -4,7 +4,7 @@ import CloudRunVsLambdaCalculator from "@/components/tools/CloudRunVsLambdaCalcu
 import { generateToolMetadata, generateStructuredData } from "@/lib/seo";
 
 export const metadata: Metadata = generateToolMetadata(
-  "Cloud Run vs AWS Lambda Pricing Calculator — Compare Serverless Costs",
+  "Cloud Run vs AWS Lambda Pricing Cost Calculator",
   "Side-by-side serverless compute cost comparison factoring in concurrency, vCPU seconds, and official free tiers. Free FinOps tool.",
   "cloud-run-vs-lambda-cost"
 );

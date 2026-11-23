@@ -4,7 +4,7 @@ import KarpenterVsClusterAutoscaler from "@/components/tools/KarpenterVsClusterA
 import { generateToolMetadata, generateStructuredData } from "@/lib/seo";
 
 export const metadata: Metadata = generateToolMetadata(
-  "Kubernetes Karpenter vs Cluster Autoscaler Bin-Packing & Waste Simulator",
+  "Karpenter vs Cluster Autoscaler K8s Simulator",
   "Simulate real-world Kubernetes 2D bin packing, DaemonSet overhead, CPU/RAM fragmentation, and calculate cost savings between Karpenter and Cluster Autoscaler.",
   "k8s-karpenter-bin-packing-simulator"
 );

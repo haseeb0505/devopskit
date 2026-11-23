@@ -4,7 +4,7 @@ import JsonPayloadSizeCalculator from "@/components/tools/JsonPayloadSizeCalcula
 import { generateToolMetadata, generateStructuredData } from "@/lib/seo";
 
 export const metadata: Metadata = generateToolMetadata(
-  "JSON Payload Size Calculator — Raw Bytes, Minified, Gzip & LLM Tokens",
+  "JSON Payload Size Calculator — Bytes & LLM Tokens",
   "Measure raw bytes, minified footprint, estimated Gzip compression, and approximate LLM token count for any JSON. Free developer tool.",
   "json-payload-size-calculator"
 );

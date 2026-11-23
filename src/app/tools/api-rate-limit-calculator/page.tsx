@@ -4,7 +4,7 @@ import ApiRateLimitCalculator from "@/components/tools/ApiRateLimitCalculator";
 import { generateToolMetadata, generateStructuredData } from "@/lib/seo";
 
 export const metadata: Metadata = generateToolMetadata(
-  "API Rate Limit & Burst Calculator — Token Bucket & Concurrency Sizer",
+  "API Rate Limit & Burst Calculator — Token Bucket",
   "Calculate token bucket capacities, refill rates, and retry backoff headroom from target RPS and P95 latencies. Free developer tool.",
   "api-rate-limit-calculator"
 );

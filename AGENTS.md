@@ -12,10 +12,10 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 # DevOpsKit Agent Quick Map & Execution Status
 
-This section serves as a shared context map for all AI agents working across chats on this repository.
+This document is the living execution tracker and shared context map for all AI agents working across sessions on this repository.
 
 ## 🧭 Project Identity & Architecture
-- **Purpose:** 100% static, client-side Next.js web application providing 12 high-utility Cloud FinOps, AI API, and developer calculators.
+- **Purpose:** 100% static, client-side Next.js web application providing 15 high-utility Cloud FinOps, AI API, and developer calculators.
 - **Live Production URL:** [https://devopskit.tools](https://devopskit.tools) (Hosted on Cloudflare Pages).
 - **Security & Networking:** 100% SSL/TLS with forced HTTP to HTTPS (301) redirect via Cloudflare Edge.
 - **Core Stack:** Next.js (App Router, static export), TypeScript, Tailwind CSS, Lucide icons.
@@ -24,98 +24,84 @@ This section serves as a shared context map for all AI agents working across cha
 
 ---
 
-## 🗺️ Workspace Map
+## 📋 Comprehensive Living Project Checklist & Tracker
 
-```text
-devopskit/
-├── AGENTS.md                   # Agent system rules, architecture map & live tracker
-├── PLAN.md                     # Comprehensive master plan & AdSense qualification strategy
-├── wrangler.jsonc              # Cloudflare Pages / Workers static assets configuration
-├── next.config.ts              # Next.js config (output: 'export', images: { unoptimized: true })
-├── docs/
-│   ├── LAUNCH_TEMPLATES_US.md  # Battle-tested Hacker News, Reddit, and Product Hunt playbooks
-├── public/
-│   ├── llms.txt                # FastAI/Anthropic standard AI model manifest
-│   ├── llms-full.txt           # Detailed URL parameter schemas for RAG query endpoints
-│   ├── BingSiteAuth.xml        # Verified Bing Webmaster Tools authentication token
-│   └── ads.txt                 # Pre-formatted Google AdSense verification snippet
-├── src/
-│   ├── app/
-│   │   ├── layout.tsx          # Root shell, theme, font, metadata, analytics/ads slots
-│   │   ├── page.tsx            # Hub homepage with tool directory & category filters
-│   │   ├── sitemap.ts          # XML sitemap generator
-│   │   ├── robots.ts           # Robots.txt with explicit GPTBot/PerplexityBot/ClaudeBot rules
-│   │   ├── embed/              # Clean iframe routes for external blog embeds
-│   │   ├── about/              # Site mission & maintainer info
-│   │   ├── contact/            # Support & pricing correction contact form/mailto
-│   │   ├── privacy-policy/     # AdSense cookie & client-side processing policies
-│   │   ├── terms/              # Disclaimer of estimation & terms of use
-│   │   └── tools/              # 12 interactive calculator pages
-│   │       ├── llm-api-cost-calculator/
-│   │       ├── prompt-caching-calculator/
-│   │       ├── rag-embedding-cost-calculator/
-│   │       ├── ai-agent-cost-estimator/
-│   │       ├── cloud-run-vs-lambda-cost/
-│   │       ├── cloud-egress-cost-calculator/
-│   │       ├── cloud-sql-storage-calculator/
-│   │       ├── k8s-node-bin-packing/
-│   │       ├── cron-expression-tester/
-│   │       ├── jwt-decoder-inspector/
-│   │       ├── json-payload-size-calculator/
-│   │       └── api-rate-limit-calculator/
-│   ├── components/             # Reusable UI widgets, layout shells, headers, exports
-│   ├── config/site.ts          # Central branding, domain & credentials placeholders
-│   ├── data/pricing.json       # Centralized pricing tables (LLM, Cloud Run, Lambda, etc.)
-│   └── lib/                    # Calculation engines, export helpers, SEO schemas
-```
+### 🟢 1. Core Architecture & UI/UX (100% Complete)
+- [x] **Zero-Backend Architecture:** 100% client-side computation with no server-side secrets or databases.
+- [x] **Sticky Multi-Category Tool Sidebar:** Quick-access navigation across AI & LLM, Cloud FinOps, and Developer Utilities with active-state indicators.
+- [x] **Balanced 2XL Viewport Layout:** Grid expanded to `col-span-6 / col-span-6` for wide, readable sliders and input controls.
+- [x] **Custom DevOpsKit Brand Iconography:** Custom SVG terminal favicon and browser tab icons (`icon.svg`, `favicon.ico`) deployed.
+- [x] **1-Click Share & Export Engine:**
+  - [x] CSV export functionality (`downloadCSV`) on all cost calculators.
+  - [x] 1-Click Markdown snippet copy for Slack / PRs / GitHub Issues.
+  - [x] Live query param synchronization (`useQueryParams`) for bookmarkable calculations.
 
 ---
 
-## 📈 Status Dashboard
+### 🟢 2. The 15 Tool Directory (All 15 Live in Production)
+- [x] **vLLM & Self-Hosted LLM GPU Hardware Profiler (Flagship)**: Models weights, GQA KV cache, Tensor Parallelism, tokens/sec, and cloud GPU cost breakeven.
+- [x] **AWS NAT Gateway & Egress Trap Cost Auditor (Flagship)**: Audits S3 backup leaks, cross-AZ hairpinning, fck-nat savings, and outputs 1-click Terraform.
+- [x] **Kubernetes Karpenter vs Cluster Autoscaler Simulator (Flagship)**: Real 2D bin-packing simulator calculating DaemonSet tax and right-sizing savings.
+- [x] **GPT-4o vs Claude 3.7 Sonnet Cost Calculator (Comparison pSEO)**: Side-by-side prompt caching discount crossover modeler.
+- [x] **DeepSeek R1 vs OpenAI o1 Cost Calculator (Comparison pSEO)**: Reasoning & thinking token pricing comparison calculator.
+- [x] **LLM API Cost Calculator**: Updated November 2026 prices for GPT-4o, o1, o3, o4-mini, Gemini 2.5 Flash/Pro, Claude 3.7 Sonnet, DeepSeek V3/R1.
+- [x] **Prompt Caching Cost Calculator**: Breakeven cache hit rate, prompt TTL, and monthly savings.
+- [x] **RAG Embedding Cost Calculator**: Vector DB storage, dimensions, chunking overhead.
+- [x] **AI Agent Cost Estimator**: Multi-turn tool loops, recursive context growth, and runaway cost simulation.
+- [x] **Cloud Run vs AWS Lambda Cost Evaluator**: Concurrency, vCPU-seconds, free tiers.
+- [x] **Multi-Cloud Egress Cost Calculator**: AWS, GCP, Azure vs Cloudflare R2 / CDN.
+- [x] **Cloud SQL / RDS Storage Growth Planner**: 12-month disk growth, WAL logs, HA replication.
+- [x] **Kubernetes Node Bin-Packing Calculator**: Node instance capacity and waste percentage.
+- [x] **Cron Expression Tester**: 5-field and 6-field parser with next 10 runs.
+- [x] **JWT Decoder & Inspector**: 100% in-browser token decoding, claims inspection, expiration countdown.
+- [x] **JSON Payload Size Calculator**: Raw, minified, Gzip, and LLM token counting.
+- [x] **API Rate Limit Calculator**: Token bucket capacity, refill rate, and burst headroom.
 
-### ✅ Completed
-- [x] **Full Platform Architecture:** Next.js static export + Tailwind CSS styling + dark/light theme support.
-- [x] **12 Dedicated Tools Built:**
-  - 4x AI & LLM FinOps tools (LLM Cost, Prompt Caching, RAG Embedding, AI Agent Cost).
-  - 4x Cloud Infrastructure tools (Cloud Run vs Lambda, Cloud Egress, Cloud SQL Storage, K8s Bin Packing).
-  - 4x Developer Utilities (JWT Decoder, Cron Expression, JSON Payload, API Rate Limit).
-- [x] **Live Domain & Hosting Setup:**
-  - Connected repository to Cloudflare Pages with automatic git deploys on `main`.
-  - Custom domain bound and live at **`https://devopskit.tools`**.
-  - Permanent HTTP → HTTPS (301) redirect active across Cloudflare edge.
-- [x] **Search Console & Engine Indexing:**
-  - **Google Search Console:** Verified & `sitemap.xml` submitted with **Status: Success (17 discovered pages)**.
-  - **Bing Webmaster Tools:** Verified via DNS CNAME & `sitemap.xml` submitted (indexes into ChatGPT Search).
-- [x] **Generative Engine Optimization (GEO / AEO):**
-  - Published official `public/llms.txt` and `public/llms-full.txt` (FastAI / Anthropic format).
-  - Configured `robots.txt` explicitly allowing `GPTBot`, `OAI-SearchBot`, `PerplexityBot`, `ClaudeBot`, and `Google-Extended`.
-  - Injected W3C-compliant Schema.org `@graph` uniting `WebApplication`, `Dataset`, and `FAQPage`.
-- [x] **Princeton GEO & Conversion Enhancements:**
-  - Deployed static HTML benchmark comparison tables with authoritative outbound links (OpenAI, Anthropic, AWS, Google) for zero-JS bot extraction.
-  - Deployed 1-Click Startup Archetypes (*Seed AI Wrapper*, *Support RAG Bot*, *Microservice on Cloud Run*, etc.) across key calculators to eliminate user bounce rates.
-  - Built `/embed/*` lightweight iframe routes with direct backlink attribution.
-- [x] **US Distribution & Launch Playbook:**
-  - Authored comprehensive, anti-marketing community launch templates in `docs/LAUNCH_TEMPLATES_US.md` for Hacker News ('Show HN'), Reddit (`r/devops`, `r/LocalLLaMA`, `r/aws`), and Product Hunt.
+---
 
-### 🟡 In Progress / Polish
-- [ ] **First Community Launch Wave:** Post Show HN and Reddit threads during optimal US morning windows (Tuesday–Thursday 7:30 AM – 10:00 AM EST).
-- [ ] **Real-world User Feedback & Verification:** Verify query param hydration across all 12 tool views under edge cases.
-- [ ] **Unit Test Coverage:** Ensure dedicated test runner (e.g. Vitest) covers all calculation edge cases in `src/lib/calculators/`.
+### 🟡 3. Technical SEO, GEO & Search Indexing (Active)
+- [x] **Static SSG Export:** All 27 static routes prerendered to HTML for zero-JS bot extraction.
+- [x] **W3C Semantic Schema.org Graph:** Connected `@graph` uniting `WebApplication`, `Dataset`, and `FAQPage` on every tool page.
+- [x] **AI Search Crawler Directives:** Configured `robots.txt` explicitly allowing `GPTBot`, `PerplexityBot`, `ClaudeBot`, `OAI-SearchBot`, and `Google-Extended`.
+- [x] **GEO Manifests:** Live `public/llms.txt` and `public/llms-full.txt` updated with all 15 tools and schema contracts.
+- [x] **Sitemap:** Fully dynamic static `sitemap.xml` with priority and weekly change frequency.
+- [ ] **Google Search Console Indexing Request (Manual Action):**
+  - [x] Initial 12 tool URLs requested.
+  - [ ] Request Indexing for 3 new flagship URLs:
+    - `https://devopskit.tools/tools/vllm-gpu-hardware-profiler`
+    - `https://devopskit.tools/tools/aws-nat-gateway-cost-auditor`
+    - `https://devopskit.tools/tools/k8s-karpenter-bin-packing-simulator`
+  - [ ] Re-submit updated `sitemap.xml` in GSC.
+- [ ] **Bing Webmaster Tools Indexing:** Verify submitted URLs update from 12 to 15.
 
-### 🔮 Next Plan & Roadmap (Phase 2 & Phase 3)
-1. **Automated Live Pricing Pipeline & Data Defense (Phase 2 Priority):**
-   - **Automated Sync Engine (`scripts/sync-pricing.mjs`):** Script to fetch and verify LLM (OpenAI, Anthropic, Gemini, DeepSeek) and cloud rates against official source registries and APIs.
-   - **GitHub Actions Scheduled Cron (`.github/workflows/pricing-sync.yml`):** Runs weekly/daily to check for price drops, validate via Zod schema (preventing corrupted/NaN rates), and automatically commit updates to `src/data/pricing.json`.
-   - **"Live Data Verification" Badge & Source Trust:** Dynamic timestamp and direct diff links so no user or competitor can challenge calculation accuracy.
-2. **Community Execution:**
-   - Launch on Hacker News ("Show HN") following the template in `docs/LAUNCH_TEMPLATES_US.md`.
-   - Post to `r/devops` and `r/LocalLLaMA` and engage within the 120-minute golden window.
-3. **Search Console Monitoring:**
-   - Track initial crawling impressions and index coverage in Google Search Console and Bing.
-4. **Monetization & AdSense:**
-   - Replace placeholder `ADSENSE_PUB_ID` in `src/config/site.ts` and `public/ads.txt`.
-   - Apply for Google AdSense site approval after initial organic traffic and indexing.
-5. **Future Tool Expansion:**
-   - Additional serverless FinOps calculators (DynamoDB vs Cloud Firestore, S3 Glacier lifecycle tiers).
-   - Local offline PWA (Progressive Web App) manifest support for instant dev access.
+---
 
+### 🟡 4. Engineering-Led Backlinks & Launch Wave (Immediate Priority)
+- [ ] **Directory Self-Submissions (No Approval Gate):**
+  - [ ] Submit to **AlternativeTo.net** (categorize as free alternative to AWS Pricing Calculator & Infracost).
+  - [ ] Submit to **Toolify.ai** (AI & Developer Tools category).
+  - [ ] Submit to **Futurepedia.io**.
+- [ ] **Community Launch Wave (Show HN & Reddit):**
+  - [ ] Post **Show HN** on Hacker News (`docs/LAUNCH_TEMPLATES_US.md`) highlighting the vLLM profiler and NAT gateway auditor.
+  - [ ] Post targeted technical threads on:
+    - [ ] `r/LocalLLaMA` (Focus: vLLM VRAM KV cache sizer).
+    - [ ] `r/aws` (Focus: AWS NAT Gateway & S3 Endpoint trap auditor).
+    - [ ] `r/devops` (Focus: Karpenter bin-packing simulator).
+- [ ] **GitHub Awesome Lists PR Submissions:**
+  - [ ] Submit PR to `awesome-finops`.
+  - [ ] Submit PR to `awesome-devops`.
+  - [ ] Submit PR to `awesome-selfhosted`.
+
+---
+
+### 🔮 5. Long-Term Growth, Automated Pipelines & Monetization (Roadmap)
+- [ ] **Automated Pricing Sync Pipeline:**
+  - [ ] GitHub Actions scheduled cron job (`.github/workflows/pricing-sync.yml`) checking model/cloud price changes.
+  - [ ] Zod schema validator to prevent NaN/corrupted pricing values.
+- [ ] **Search Console "Striking Distance" Optimization (Day 30–60):**
+  - [ ] Review queries ranking in positions 5–20.
+  - [ ] Expand headings and FAQs on those specific pages to climb into top 3.
+- [ ] **AdSense Approval & Monetization:**
+  - [ ] Log initial organic search traffic.
+  - [ ] Add verified AdSense Publisher ID in `src/config/site.ts` and `public/ads.txt`.
+  - [ ] Submit for Google AdSense review.

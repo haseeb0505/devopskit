@@ -4,7 +4,7 @@ import CloudSqlStorageCalculator from "@/components/tools/CloudSqlStorageCalcula
 import { generateToolMetadata, generateStructuredData } from "@/lib/seo";
 
 export const metadata: Metadata = generateToolMetadata(
-  "Managed Postgres & Cloud SQL Storage Calculator — Disk & Backup Growth",
+  "Postgres & Cloud SQL Storage Cost Calculator",
   "Forecast 12-month disk growth, WAL backup retention footprints, and HA multi-zone replication storage bills. Free FinOps tool.",
   "cloud-sql-storage-calculator"
 );

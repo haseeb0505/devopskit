@@ -4,7 +4,7 @@ import K8sBinPackingCalculator from "@/components/tools/K8sBinPackingCalculator"
 import { generateToolMetadata, generateStructuredData } from "@/lib/seo";
 
 export const metadata: Metadata = generateToolMetadata(
-  "Kubernetes Node Bin-Packing Calculator — Sizing & Cluster Efficiency",
+  "Kubernetes Node Bin-Packing Capacity Calculator",
   "Optimize cluster nodes by packing pod requests, accounting for DaemonSet/kube-system overhead and wasted capacity. Free FinOps tool.",
   "k8s-node-bin-packing"
 );

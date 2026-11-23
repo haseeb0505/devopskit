@@ -4,7 +4,7 @@ import AIAgentCostCalculator from "@/components/tools/AIAgentCostCalculator";
 import { generateToolMetadata, generateStructuredData } from "@/lib/seo";
 
 export const metadata: Metadata = generateToolMetadata(
-  "AI Agent Cost Estimator — Multi-Turn Tool Call Loop Calculator",
+  "AI Agent Cost Estimator — Context & Loop Sizer",
   "Simulate multi-turn autonomous agent loops, context window compounding, and worst-case runaway costs. Free FinOps tool.",
   "ai-agent-cost-estimator"
 );

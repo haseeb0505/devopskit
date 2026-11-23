@@ -31,6 +31,18 @@ const tools = [
         short: "vLLM GPU Sizer ★",
       },
       {
+        name: "GPT-4o vs Claude 3.7",
+        href: "/tools/gpt-4o-vs-claude-3-7-sonnet-cost",
+        icon: ArrowRightLeft,
+        short: "GPT-4o vs Claude 3.7",
+      },
+      {
+        name: "DeepSeek R1 vs o1",
+        href: "/tools/deepseek-r1-vs-openai-o1-cost",
+        icon: Brain,
+        short: "DeepSeek R1 vs o1",
+      },
+      {
         name: "LLM API Cost Calculator",
         href: "/tools/llm-api-cost-calculator",
         icon: Brain,

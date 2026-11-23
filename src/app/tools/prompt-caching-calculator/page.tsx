@@ -4,7 +4,7 @@ import PromptCachingCalculator from "@/components/tools/PromptCachingCalculator"
 import { generateToolMetadata, generateStructuredData } from "@/lib/seo";
 
 export const metadata: Metadata = generateToolMetadata(
-  "Prompt Caching Cost Calculator — Calculate LLM Cache Savings & ROI",
+  "Prompt Caching Cost Calculator & ROI Forecaster",
   "Determine exact dollar savings and break-even hit rate when utilizing prompt caching on OpenAI, Anthropic, and Gemini. Free FinOps tool.",
   "prompt-caching-calculator"
 );

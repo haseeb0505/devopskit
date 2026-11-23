@@ -4,7 +4,7 @@ import CloudEgressCalculator from "@/components/tools/CloudEgressCalculator";
 import { generateToolMetadata, generateStructuredData } from "@/lib/seo";
 
 export const metadata: Metadata = generateToolMetadata(
-  "Cloud Egress Cost Calculator — AWS, GCP, Azure Bandwidth & CDN Savings",
+  "Cloud Egress Cost Calculator — AWS, GCP & Azure",
   "Model standard internet egress across AWS, GCP, and Azure vs. Cloudflare CDN and zero-egress R2 storage. Free FinOps tool.",
   "cloud-egress-cost-calculator"
 );

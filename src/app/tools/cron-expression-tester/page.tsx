@@ -4,7 +4,7 @@ import CronExpressionTester from "@/components/tools/CronExpressionTester";
 import { generateToolMetadata, generateStructuredData } from "@/lib/seo";
 
 export const metadata: Metadata = generateToolMetadata(
-  "Cron Expression Tester & Schedule Calculator — 5-Field & 6-Field",
+  "Cron Expression Tester & Schedule Visualizer",
   "Evaluate 5-field and 6-field cron expressions instantly with human-readable breakdowns and next execution timestamps. Free developer tool.",
   "cron-expression-tester"
 );
