@@ -22,6 +22,13 @@ export const metadata: Metadata = {
     "devops tools",
     "cloud finops",
   ],
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "32x32" },
+    ],
+    apple: [{ url: "/icon.svg" }],
+  },
   authors: [{ name: "DevOpsKit Team", url: siteConfig.url }],
   creator: "DevOpsKit",
   openGraph: {

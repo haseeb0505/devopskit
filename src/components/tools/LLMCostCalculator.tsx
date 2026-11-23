@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { calculateLLMCosts, ModelCostBreakdown } from "@/lib/calculators";
-import { Copy, Check } from "lucide-react";
+import { Copy, Check, Download } from "lucide-react";
+import { downloadCSV } from "@/lib/export";
 import ShareBar from "./ShareBar";
 
 export default function LLMCostCalculator() {
@@ -83,7 +84,7 @@ export default function LLMCostCalculator() {
       {/* Interactive Controls & Live Readouts */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* Left Inputs */}
-        <div className="lg:col-span-5 space-y-6 bg-white border border-slate-200 shadow-sm rounded-2xl p-6">
+        <div className="lg:col-span-6 space-y-6 bg-white border border-slate-200 shadow-sm rounded-2xl p-6">
           <div className="flex items-center justify-between pb-3 border-b border-slate-100">
             <h3 className="font-semibold text-slate-900 text-base">Usage Parameters</h3>
             <span className="text-xs text-slate-500 font-mono">Real-Time Reactive</span>
@@ -215,17 +216,38 @@ export default function LLMCostCalculator() {
         </div>
 
         {/* Right Output Comparison Table */}
-        <div className="lg:col-span-7 space-y-4">
+        <div className="lg:col-span-6 space-y-4">
           <div className="flex items-center justify-between">
             <h3 className="font-semibold text-slate-900 text-base">Cost Comparison</h3>
-            <button
-              type="button"
-              onClick={handleCopy}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-50 border border-blue-200 text-blue-700 hover:bg-blue-100 text-xs font-medium transition-colors"
-            >
-              {copied ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
-              <span>{copied ? "Copied!" : "Copy Breakdown"}</span>
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() =>
+                  downloadCSV(
+                    `llm-cost-estimate-${new Date().toISOString().slice(0, 10)}.csv`,
+                    results.map((r) => ({
+                      Model: r.name,
+                      Provider: r.provider,
+                      "Cost per 1k Reqs ($)": parseFloat((r.costPerRequest * 1000).toFixed(6)),
+                      "Daily Cost ($)": parseFloat(r.costPerDay.toFixed(4)),
+                      "Monthly Cost ($)": parseFloat(r.costPerMonth.toFixed(2)),
+                    }))
+                  )
+                }
+                className="flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-600 transition-colors"
+              >
+                <Download className="h-3.5 w-3.5" />
+                <span>Export CSV</span>
+              </button>
+              <button
+                type="button"
+                onClick={handleCopy}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-50 border border-blue-200 text-blue-700 hover:bg-blue-100 text-xs font-medium transition-colors"
+              >
+                {copied ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
+                <span>{copied ? "Copied!" : "Copy Breakdown"}</span>
+              </button>
+            </div>
           </div>
 
           <div className="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden">

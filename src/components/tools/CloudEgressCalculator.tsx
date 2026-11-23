@@ -73,7 +73,7 @@ export default function CloudEgressCalculator() {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* Controls */}
-        <div className="lg:col-span-5 space-y-6 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+        <div className="lg:col-span-6 space-y-6 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
           <div className="flex items-center justify-between pb-3 border-b border-slate-100">
             <h3 className="font-semibold text-slate-900 text-base">Bandwidth Parameters</h3>
             <span className="text-xs text-indigo-600 font-mono font-medium">Egress Optimization</span>
@@ -195,7 +195,7 @@ export default function CloudEgressCalculator() {
         </div>
 
         {/* Readouts */}
-        <div className="lg:col-span-7 space-y-6">
+        <div className="lg:col-span-6 space-y-6">
           <div className="flex items-center justify-between">
             <h3 className="font-semibold text-slate-900 text-base">Egress Bill Analysis</h3>
             <button

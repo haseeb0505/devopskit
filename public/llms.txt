@@ -5,6 +5,9 @@ All calculations execute client-side in the user's browser. Pricing rates are up
 
 ## Calculators & Tools
 
+- [vLLM GPU Sizing & Hardware Profiler](https://devopskit.tools/tools/vllm-gpu-hardware-profiler): Precision VRAM calculator, KV cache sizing, Tensor Parallelism cluster planner, and token throughput estimator for Llama 3.3, DeepSeek R1, and Qwen 2.5 self-hosting.
+- [AWS NAT Gateway & Egress Trap Cost Auditor](https://devopskit.tools/tools/aws-nat-gateway-cost-auditor): AWS VPC architecture cost auditor calculating data processing fees, S3 and ECR VPC endpoint savings, cross-AZ hairpinning, and fck-nat break-even.
+- [Kubernetes Karpenter vs Cluster Autoscaler Simulator](https://devopskit.tools/tools/k8s-karpenter-bin-packing-simulator): 2D pod bin-packing simulator calculating DaemonSet tax, multi-dimensional fragmentation, and dollar savings of dynamic Karpenter right-sizing vs homogeneous node groups.
 - [LLM API Cost Calculator](https://devopskit.tools/tools/llm-api-cost-calculator): Interactive token cost calculator comparing OpenAI (GPT-4o, o1, o3-mini), Anthropic (Claude 3.5 Sonnet, Haiku), and Google Gemini (2.5 Flash, 2.5 Pro) across input, cached, and output tokens.
 - [Prompt Caching Cost Calculator](https://devopskit.tools/tools/prompt-caching-calculator): Calculate net monthly dollar savings and break-even cache hit rates for Anthropic, OpenAI, and Gemini prompt caching.
 - [RAG Embedding Cost Calculator](https://devopskit.tools/tools/rag-embedding-cost-calculator): Sizing and vector database indexing cost estimator for document embeddings across OpenAI, Cohere, and open-source models.

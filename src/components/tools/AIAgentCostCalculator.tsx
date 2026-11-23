@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { calculateAIAgentCost, AIAgentResult } from "@/lib/calculators";
-import { Copy, Check } from "lucide-react";
+import { Copy, Check, Download } from "lucide-react";
+import { downloadCSV } from "@/lib/export";
 
 export default function AIAgentCostCalculator() {
   const [initialPromptTokens, setInitialPromptTokens] = useState<number>(2000);
@@ -36,7 +37,7 @@ export default function AIAgentCostCalculator() {
     <div className="space-y-8">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* Controls */}
-        <div className="lg:col-span-5 space-y-6 bg-white border border-slate-200 shadow-sm rounded-2xl p-6">
+        <div className="lg:col-span-6 space-y-6 bg-white border border-slate-200 shadow-sm rounded-2xl p-6">
           <div className="flex items-center justify-between pb-3 border-b border-slate-100">
             <h3 className="font-semibold text-slate-900 text-base">Agent Loop Parameters</h3>
             <span className="text-xs text-blue-600 font-mono font-medium">Compounding Window</span>
@@ -198,17 +199,38 @@ export default function AIAgentCostCalculator() {
         </div>
 
         {/* Readouts */}
-        <div className="lg:col-span-7 space-y-6">
+        <div className="lg:col-span-6 space-y-6">
           <div className="flex items-center justify-between">
             <h3 className="font-semibold text-slate-900 text-base">Cost &amp; Context Escalation</h3>
-            <button
-              type="button"
-              onClick={handleCopy}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-50 border border-blue-200 text-blue-700 hover:bg-blue-100 text-xs font-medium transition-colors"
-            >
-              {copied ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
-              <span>{copied ? "Copied!" : "Copy Report"}</span>
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() =>
+                  downloadCSV(
+                    `ai-agent-cost-${new Date().toISOString().slice(0, 10)}.csv`,
+                    [
+                      { Metric: "Tokens per Run", Value: result.tokensPerRun },
+                      { Metric: "Cost per Run ($)", Value: parseFloat(result.costPerRun.toFixed(6)) },
+                      { Metric: "Monthly Runs", Value: monthlyRuns },
+                      { Metric: "Monthly Cost ($)", Value: parseFloat(result.monthlyCost.toFixed(2)) },
+                      { Metric: "Annual Cost ($)", Value: parseFloat(result.annualCost.toFixed(2)) },
+                    ]
+                  )
+                }
+                className="flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-600 transition-colors"
+              >
+                <Download className="h-3.5 w-3.5" />
+                <span>Export CSV</span>
+              </button>
+              <button
+                type="button"
+                onClick={handleCopy}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-50 border border-blue-200 text-blue-700 hover:bg-blue-100 text-xs font-medium transition-colors"
+              >
+                {copied ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
+                <span>{copied ? "Copied!" : "Copy Report"}</span>
+              </button>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
