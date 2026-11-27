@@ -84,8 +84,9 @@ This document is the living execution tracker and shared context map for all AI 
   - [ ] Submit to **Futurepedia.io** / **There's An AI For That (TAAFT)**.
 - [ ] **Community Launch Wave (Show HN & Reddit):**
   - [ ] Post **Show HN** on Hacker News (`docs/LAUNCH_TEMPLATES_US.md`) highlighting the vLLM profiler and NAT gateway auditor.
+  - [x] Publish Technical Article on **Dev.to** (AWS NAT Gateway & S3 Egress Trap Auditor).
   - [ ] Post targeted technical threads on:
-    - [x] `r/LocalLLaMA` (Focus: vLLM VRAM KV cache sizer): **Posted**.
+    - [x] `r/LocalLLaMA` (Focus: vLLM VRAM KV cache sizer): **Posted & High Engagement**.
     - [ ] `r/aws` (Focus: AWS NAT Gateway & S3 Endpoint trap auditor).
     - [ ] `r/devops` (Focus: Karpenter bin-packing simulator).
 - [ ] **GitHub Awesome Lists PR Submissions:**
