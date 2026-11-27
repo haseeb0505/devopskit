@@ -9,6 +9,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
+        disallow: ["/favicon.ico?*"],
       },
       // Explicit allowance for AI Search & Retrieval Bots (GEO/AEO Optimization)
       {
