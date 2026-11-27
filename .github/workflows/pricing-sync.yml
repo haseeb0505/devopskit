@@ -1,0 +1,51 @@
+name: Pricing Sync & Validation
+
+on:
+  schedule:
+    # Run every Monday at 06:00 UTC
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'src/data/pricing.json'
+      - 'scripts/validate-pricing.js'
+  pull_request:
+    paths:
+      - 'src/data/pricing.json'
+      - 'scripts/validate-pricing.js'
+
+jobs:
+  validate-pricing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate pricing schema & values
+        run: npm run validate:pricing
+
+      - name: Run unit tests
+        run: npm test
+
+      - name: Check pricing freshness
+        run: |
+          node -e '
+            const fs = require("fs");
+            const data = JSON.parse(fs.readFileSync("src/data/pricing.json", "utf8"));
+            const last = new Date(data.lastUpdated);
+            const ageDays = Math.floor((Date.now() - last.getTime()) / (1000 * 60 * 60 * 24));
+            console.log(`Pricing lastUpdated: ${data.lastUpdated} (${ageDays} days ago)`);
+            if (isNaN(ageDays) || ageDays > 30) {
+              console.log("::warning::src/data/pricing.json is over 30 days old. Consider reviewing LLM/Cloud pricing.");
+            }
+          '
