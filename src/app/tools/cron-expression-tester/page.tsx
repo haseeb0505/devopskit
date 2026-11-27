@@ -4,12 +4,17 @@ import CronExpressionTester from "@/components/tools/CronExpressionTester";
 import { generateToolMetadata, generateStructuredData } from "@/lib/seo";
 
 export const metadata: Metadata = generateToolMetadata(
-  "Cron Expression Tester & Schedule Visualizer",
-  "Evaluate 5-field and 6-field cron expressions instantly with human-readable breakdowns and next execution timestamps. Free developer tool.",
+  "Cron Expression Evaluator & Schedule Tester",
+  "Evaluate 5-field and 6-field cron expressions instantly with human-readable breakdowns and next execution timestamps. Free developer evaluator.",
   "cron-expression-tester"
 );
 
 const faqs = [
+  {
+    question: "How does a cron expression evaluator work?",
+    answer:
+      "A cron expression evaluator parses a cron string across standard fields (minute, hour, day of month, month, day of week), translates the syntax into plain English, and computes the exact upcoming execution timestamps based on the system timezone.",
+  },
   {
     question: "What are the 5 fields of a standard cron expression?",
     answer:

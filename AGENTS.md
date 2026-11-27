@@ -68,29 +68,29 @@ This document is the living execution tracker and shared context map for all AI 
 - [x] **Sitemap:** Fully dynamic static `sitemap.xml` with priority and weekly change frequency.
 - [ ] **Google Search Console Indexing Request (Manual Action):**
   - [x] Initial 12 tool URLs requested.
-  - [ ] Request Indexing for 3 new flagship URLs:
+  - [x] Request Indexing for 3 new flagship URLs:
     - `https://devopskit.tools/tools/vllm-gpu-hardware-profiler`
     - `https://devopskit.tools/tools/aws-nat-gateway-cost-auditor`
     - `https://devopskit.tools/tools/k8s-karpenter-bin-packing-simulator`
-  - [ ] Re-submit updated `sitemap.xml` in GSC.
+  - [x] Re-submit updated `sitemap.xml` in GSC.
 - [ ] **Bing Webmaster Tools Indexing:** Verify submitted URLs update from 12 to 15.
 
 ---
 
 ### 🟡 4. Engineering-Led Backlinks & Launch Wave (Immediate Priority)
 - [ ] **Directory Self-Submissions (No Approval Gate):**
-  - [ ] Submit to **AlternativeTo.net** (categorize as free alternative to AWS Pricing Calculator & Infracost).
-  - [ ] Submit to **Toolify.ai** (AI & Developer Tools category).
-  - [ ] Submit to **Futurepedia.io**.
+  - [x] Submit to **DevHunt** (Free launchpad for dev tools with high authority): [Live Listing](https://devhunt.org/tool/devopskit).
+  - [-] **AlternativeTo.net**: Rejected (moderator policy restricts multi-calculator / web utility suites).
+  - [ ] Submit to **Futurepedia.io** / **There's An AI For That (TAAFT)**.
 - [ ] **Community Launch Wave (Show HN & Reddit):**
   - [ ] Post **Show HN** on Hacker News (`docs/LAUNCH_TEMPLATES_US.md`) highlighting the vLLM profiler and NAT gateway auditor.
   - [ ] Post targeted technical threads on:
-    - [ ] `r/LocalLLaMA` (Focus: vLLM VRAM KV cache sizer).
+    - [x] `r/LocalLLaMA` (Focus: vLLM VRAM KV cache sizer): **Posted**.
     - [ ] `r/aws` (Focus: AWS NAT Gateway & S3 Endpoint trap auditor).
     - [ ] `r/devops` (Focus: Karpenter bin-packing simulator).
 - [ ] **GitHub Awesome Lists PR Submissions:**
-  - [ ] Submit PR to `awesome-finops`.
-  - [ ] Submit PR to `awesome-devops`.
+  - [x] Submit PR to `awesome-finops`: PR [#60](https://github.com/jmfontaine/awesome-finops/pull/60) submitted.
+  - [x] Submit PR to `awesome-devops`: PR [#677](https://github.com/wmariuss/awesome-devops/pull/677) submitted.
   - [ ] Submit PR to `awesome-selfhosted`.
 
 ---

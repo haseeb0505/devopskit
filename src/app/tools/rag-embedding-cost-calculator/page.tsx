@@ -4,12 +4,17 @@ import RAGCostCalculator from "@/components/tools/RAGCostCalculator";
 import { generateToolMetadata, generateStructuredData } from "@/lib/seo";
 
 export const metadata: Metadata = generateToolMetadata(
-  "RAG Embedding Cost Calculator & Vector DB Sizer",
-  "Calculate token consumption, chunking overhead, and vector memory footprint (HNSW / Float32) for RAG pipelines. Free planning tool.",
+  "RAG Embedding Cost Calculator & High-Density Storage",
+  "Calculate token consumption, chunking overhead, and vector memory footprint (HNSW / Float32) for high-density storage in RAG. Free planning tool.",
   "rag-embedding-cost-calculator"
 );
 
 const faqs = [
+  {
+    question: "How do I get a quote or estimate for high-density storage for RAG?",
+    answer:
+      "To accurately size and quote high-density vector storage for RAG, calculate: (Number of Documents * Chunks/Doc) * (Dimensions * 4 bytes for Float32) * 1.5x for HNSW graph links and metadata. For 10M chunks with 1536-dimensional vectors, expect ~92 GB of high-density RAM storage.",
+  },
   {
     question: "How do you calculate RAG embedding costs?",
     answer:

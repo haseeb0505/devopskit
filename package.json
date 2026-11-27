@@ -1,6 +1,7 @@
 {
   "name": "devopskit",
   "version": "0.1.0",
+  "description": "17 free, fast, 100% client-side Cloud FinOps, AI API pricing, and developer calculators with zero trackers and zero server processing.",
   "private": true,
   "scripts": {
     "dev": "next dev",

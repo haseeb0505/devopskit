@@ -13,7 +13,7 @@ export const siteConfig: SiteConfig = {
   name: "DevOpsKit — Cloud FinOps & AI Developer Calculators",
   shortName: "DevOpsKit",
   description:
-    "12 free, fast, 100% client-side Cloud FinOps, AI API pricing, and developer calculators with zero trackers and zero server processing.",
+    "17 free, fast, 100% client-side Cloud FinOps, AI API pricing, and developer calculators with zero trackers and zero server processing.",
   url: "https://devopskit.tools",
   domain: "devopskit.tools",
   contactEmail: "contact@devopskit.tools",
