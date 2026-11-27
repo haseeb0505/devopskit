@@ -295,6 +295,31 @@ export default function VllmHardwareProfiler() {
               </div>
             </div>
 
+            {/* "Smallest Change That Fits" Actionable Recommendation */}
+            {results.isOOM && results.recommendedFix && (
+              <div className="mb-6 p-4 rounded-xl bg-rose-100/70 border border-rose-300 text-rose-950">
+                <div className="flex items-center gap-2 mb-1.5 font-bold text-xs uppercase tracking-wider text-rose-900">
+                  <Zap className="h-4 w-4 text-rose-700" />
+                  Smallest Change That Fits:
+                </div>
+                <div className="text-sm font-semibold text-rose-900 mb-1">
+                  👉 {results.recommendedFix.action}
+                </div>
+                <p className="text-xs text-rose-800 leading-relaxed mb-3">
+                  {results.recommendedFix.details}
+                </p>
+                <div className="flex flex-wrap items-center gap-3 text-xs font-mono bg-white/70 px-3 py-2 rounded-lg border border-rose-200">
+                  <span>
+                    New VRAM: <strong>{results.recommendedFix.newVramGiB} GiB</strong>
+                  </span>
+                  <span>•</span>
+                  <span>
+                    Supports: <strong>{results.recommendedFix.newMaxConcurrency} concurrent streams</strong>
+                  </span>
+                </div>
+              </div>
+            )}
+
             {/* Key Metrics Grid */}
             <div className="grid grid-cols-2 gap-3 pt-2">
               <div className="bg-slate-50 border border-slate-200/80 rounded-xl p-3">

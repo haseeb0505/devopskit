@@ -149,6 +149,12 @@ export interface VramBreakdown {
   monthlyGpuCostOnDemand: number;
   monthlyGpuCostSpot: number;
   apiBreakEvenTokensPerDay: number; // vs OpenAI/DeepSeek API (~$1.50/1M tokens avg)
+  recommendedFix?: {
+    action: string;
+    details: string;
+    newVramGiB: number;
+    newMaxConcurrency: number;
+  };
 }
 
 export function calculateVllmRequirements(params: VramCalculationParams): VramBreakdown {
@@ -206,6 +212,70 @@ export function calculateVllmRequirements(params: VramCalculationParams): VramBr
   // Breakeven: (Monthly Cost / 1.50) * 1M / 30 days
   const apiBreakEvenTokensPerDay = Math.round((monthlyGpuCostOnDemand / 1.5) * (1000000 / 30));
 
+  // Compute "Smallest Change That Fits" recommendation if in OOM state
+  let recommendedFix: VramBreakdown["recommendedFix"] = undefined;
+  if (isOOM) {
+    // Option A: Try switching to FP8 (if currently fp16)
+    if (params.precision === "fp16") {
+      const fp8WeightsGiB = (model.parametersB * 1e9 * 1.0) / (1024 * 1024 * 1024);
+      const fp8TotalVram = fp8WeightsGiB + totalKvCacheGiB + cudaOverheadGiB;
+      const clusterBudget = totalClusterVramCapacity * params.vllmCacheFraction;
+      if (fp8TotalVram <= clusterBudget) {
+        const remainingKv = Math.max(0, clusterBudget - fp8WeightsGiB - cudaOverheadGiB);
+        const maxStreams = kvCachePerReqGiB > 0 ? Math.floor(remainingKv / kvCachePerReqGiB) : 0;
+        recommendedFix = {
+          action: "Switch Precision to FP8",
+          details: `Reduces model weights to ${(fp8WeightsGiB).toFixed(1)} GiB, bringing total cluster VRAM to ${(fp8TotalVram).toFixed(1)} GiB.`,
+          newVramGiB: parseFloat(fp8TotalVram.toFixed(1)),
+          newMaxConcurrency: maxStreams,
+        };
+      }
+    }
+
+    // Option B: If not fixed by FP8, try next Tensor Parallelism (e.g. 2 -> 4 or 4 -> 8)
+    if (!recommendedFix) {
+      const nextTp = params.tensorParallel * 2;
+      if (nextTp <= 8) {
+        const nextCapacity = gpu.vramGiB * nextTp;
+        const nextCudaOverhead = 2.0 * nextTp;
+        const nextTotalVram = modelWeightsGiB + totalKvCacheGiB + nextCudaOverhead;
+        if (nextTotalVram <= nextCapacity * params.vllmCacheFraction) {
+          const remainingKv = Math.max(0, nextCapacity * params.vllmCacheFraction - modelWeightsGiB - nextCudaOverhead);
+          const maxStreams = kvCachePerReqGiB > 0 ? Math.floor(remainingKv / kvCachePerReqGiB) : 0;
+          recommendedFix = {
+            action: `Scale Tensor Parallelism to TP=${nextTp}`,
+            details: `Expands cluster to ${nextTp}x ${gpu.name} (${nextCapacity} GiB VRAM), fitting current workload with headroom.`,
+            newVramGiB: parseFloat(nextTotalVram.toFixed(1)),
+            newMaxConcurrency: maxStreams,
+          };
+        }
+      }
+    }
+
+    // Option C: If hardware cannot be easily changed, suggest lowering concurrency or context
+    if (!recommendedFix && maxSupportedConcurrency > 0) {
+      recommendedFix = {
+        action: `Reduce Concurrency to ${maxSupportedConcurrency} parallel streams`,
+        details: `Fits within the current ${totalClusterVramCapacity} GiB capacity without changing model precision or GPU count.`,
+        newVramGiB: parseFloat((modelWeightsGiB + (kvCachePerReqGiB * maxSupportedConcurrency) + cudaOverheadGiB).toFixed(1)),
+        newMaxConcurrency: maxSupportedConcurrency,
+      };
+    } else if (!recommendedFix) {
+      // Suggest AWQ 4-bit as fallback
+      const awqWeightsGiB = (model.parametersB * 1e9 * 0.55) / (1024 * 1024 * 1024);
+      const awqTotalVram = awqWeightsGiB + totalKvCacheGiB + cudaOverheadGiB;
+      const clusterBudget = totalClusterVramCapacity * params.vllmCacheFraction;
+      const remainingKv = Math.max(0, clusterBudget - awqWeightsGiB - cudaOverheadGiB);
+      const maxStreams = kvCachePerReqGiB > 0 ? Math.floor(remainingKv / kvCachePerReqGiB) : 0;
+      recommendedFix = {
+        action: "Quantize weights to AWQ 4-bit",
+        details: `Shrinks weights to ${(awqWeightsGiB).toFixed(1)} GiB, leaving substantial VRAM headroom for KV cache.`,
+        newVramGiB: parseFloat(awqTotalVram.toFixed(1)),
+        newMaxConcurrency: maxStreams,
+      };
+    }
+  }
+
   return {
     modelWeightsGiB: parseFloat(modelWeightsGiB.toFixed(2)),
     kvCachePerReqGiB: parseFloat(kvCachePerReqGiB.toFixed(3)),
@@ -220,5 +290,6 @@ export function calculateVllmRequirements(params: VramCalculationParams): VramBr
     monthlyGpuCostOnDemand: Math.round(monthlyGpuCostOnDemand),
     monthlyGpuCostSpot: Math.round(monthlyGpuCostSpot),
     apiBreakEvenTokensPerDay,
+    recommendedFix,
   };
 }
