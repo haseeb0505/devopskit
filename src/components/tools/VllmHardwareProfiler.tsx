@@ -71,6 +71,55 @@ export default function VllmHardwareProfiler() {
             </span>
           </div>
 
+          {/* 1-Click Presets */}
+          <div className="flex flex-wrap gap-2">
+            <button
+              type="button"
+              onClick={() => {
+                setModelId("llama-3.3-70b");
+                setPrecision("awq-4bit");
+                setGpuId("a100-80gb");
+                setTensorParallel(2);
+                setContextWindow(16384);
+                setConcurrency(16);
+                setKvQuant("fp8");
+              }}
+              className="text-xs px-2.5 py-1.5 rounded-lg border border-slate-200 bg-slate-50 hover:bg-blue-50 hover:border-blue-200 hover:text-blue-700 text-slate-700 font-medium transition-colors"
+            >
+              70B Prod (2× A100)
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setModelId("llama-3.3-70b");
+                setPrecision("fp8");
+                setGpuId("h100-80gb");
+                setTensorParallel(4);
+                setContextWindow(32768);
+                setConcurrency(64);
+                setKvQuant("fp8");
+              }}
+              className="text-xs px-2.5 py-1.5 rounded-lg border border-slate-200 bg-slate-50 hover:bg-blue-50 hover:border-blue-200 hover:text-blue-700 text-slate-700 font-medium transition-colors"
+            >
+              70B High-Throughput (4× H100)
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setModelId("llama-3.3-70b");
+                setPrecision("awq-4bit");
+                setGpuId("l4-24gb");
+                setTensorParallel(4);
+                setContextWindow(8192);
+                setConcurrency(8);
+                setKvQuant("fp8");
+              }}
+              className="text-xs px-2.5 py-1.5 rounded-lg border border-slate-200 bg-slate-50 hover:bg-blue-50 hover:border-blue-200 hover:text-blue-700 text-slate-700 font-medium transition-colors"
+            >
+              70B Budget (4× L4)
+            </button>
+          </div>
+
           {/* Model Selector */}
           <div>
             <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">

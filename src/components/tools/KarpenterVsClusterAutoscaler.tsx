@@ -89,6 +89,60 @@ spec:
         markdownSnippet={`### ☸️ K8s Karpenter vs Cluster Autoscaler Sizing\n- **Cluster Autoscaler Cost:** $${results.clusterAutoscalerMonthlyCost.toLocaleString()}/mo (${results.clusterAutoscalerNodes}x ${standardNode} nodes)\n- **Karpenter Dynamic Cost:** $${results.karpenterMonthlyCost.toLocaleString()}/mo (${results.karpenterTotalNodes} right-sized nodes)\n- **Identified FinOps Savings:** $${results.monthlyDollarSavingsKarpenter.toLocaleString()}/mo ($${results.annualDollarSavingsKarpenter.toLocaleString()}/yr)\n- **Spot Instance Potential:** $${results.karpenterMonthlyCostSpot.toLocaleString()}/mo`}
       />
 
+      {/* 1-Click Presets */}
+      <div className="flex flex-wrap items-center gap-2">
+        <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider mr-1">
+          Presets:
+        </span>
+        <button
+          type="button"
+          onClick={() => {
+            setWorkloads([
+              { name: "Web / API", count: 10, cpuCores: 0.5, ramGiB: 1.0 },
+              { name: "Workers", count: 10, cpuCores: 1.0, ramGiB: 2.0 },
+            ]);
+            setDaemonCpu(0.3);
+            setDaemonRam(0.8);
+            setStandardNode("m6i.xlarge");
+          }}
+          className="text-xs px-2.5 py-1.5 rounded-lg border border-slate-200 bg-white hover:bg-blue-50 hover:border-blue-200 hover:text-blue-700 text-slate-700 font-medium transition-colors"
+        >
+          Startup (20 pods)
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            setWorkloads([
+              { name: "API Gateways", count: 12, cpuCores: 0.5, ramGiB: 1.0 },
+              { name: "Backend Services", count: 24, cpuCores: 1.5, ramGiB: 4.0 },
+              { name: "ML / Worker Queue", count: 8, cpuCores: 3.5, ramGiB: 14.0 },
+            ]);
+            setDaemonCpu(0.5);
+            setDaemonRam(1.2);
+            setStandardNode("m6i.2xlarge");
+          }}
+          className="text-xs px-2.5 py-1.5 rounded-lg border border-slate-200 bg-white hover:bg-blue-50 hover:border-blue-200 hover:text-blue-700 text-slate-700 font-medium transition-colors"
+        >
+          Mid-Size SaaS (44 pods)
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            setWorkloads([
+              { name: "Ingress & Auth", count: 16, cpuCores: 1.0, ramGiB: 2.0 },
+              { name: "Data / ETL Workers", count: 40, cpuCores: 2.0, ramGiB: 12.0 },
+              { name: "Inference / Batch", count: 24, cpuCores: 4.0, ramGiB: 16.0 },
+            ]);
+            setDaemonCpu(0.8);
+            setDaemonRam(2.0);
+            setStandardNode("m6i.4xlarge");
+          }}
+          className="text-xs px-2.5 py-1.5 rounded-lg border border-slate-200 bg-white hover:bg-blue-50 hover:border-blue-200 hover:text-blue-700 text-slate-700 font-medium transition-colors"
+        >
+          AI / Data Pipeline (80 pods)
+        </button>
+      </div>
+
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* Left Inputs: Pods & DaemonSets */}
         <div className="lg:col-span-6 space-y-6 bg-white border border-slate-200 shadow-sm rounded-2xl p-6">
